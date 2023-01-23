@@ -20,6 +20,9 @@ struct s_map {
 	int		fd;
 };
 
+// error handling
+void	display_usage_and_exit(void);
+
 // parsing
 void	parse_map(t_map *map, const char *filepath);
 
