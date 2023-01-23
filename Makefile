@@ -3,11 +3,15 @@ SHELL := /bin/sh
 NAME := cub3d
 OBJDIR := objdir
 
-CFLAGS += -I./include -Wall -Wextra -g
-LDLIBS += -lm
-LDFLAGS +=
+CFLAGS += $(INCLUDE) -Wall -Wextra -g
+LDLIBS += -lm -lft
+LDFLAGS += -L$(LIBFTDIR)
+INCLUDE = -I./include -I$(LIBFTDIR)/include
 
-vpath %.c src
+LIBFTDIR = ./libs/libft
+LIBFT := $(LIBFTDIR)/libft.a
+
+vpath %.c $(shell find src -type d)
 
 OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
@@ -20,6 +24,9 @@ $(OBJDIR)/%.o: %.c
 
 all: $(NAME)
 
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(OBJS) -o $@ $(LDFLAGS) $(LDLIBS)
+
 options:
 	@echo "$(NAME) build options:"
 	@echo "CFLAGS        = $(CFLAGS)"
@@ -27,15 +34,20 @@ options:
 	@echo "LDLIBS        = $(LDLIBS)"
 	@echo "CC            = $(CC)"
 
+$(LIBFT):
+	$(MAKE) -j4 -C$(LIBFTDIR) --no-print-directory
+
 $(OBJS): | $(OBJDIR)
 
 $(OBJDIR):
 	mkdir $@
 
 clean:
+	$(MAKE) clean -C$(LIBFTDIR) --no-print-directory
 	$(RM) $(OBJS)
 
 fclean: clean
+	$(MAKE) fclean -C$(LIBFTDIR) --no-print-directory
 	$(RM) $(NAME)
 
 re: fclean all
