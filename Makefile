@@ -3,7 +3,7 @@ SHELL := /bin/sh
 NAME := cub3d
 OBJDIR := objdir
 
-CFLAGS += -Wall -Wextra -g
+CFLAGS += -I./include -Wall -Wextra -g
 LDLIBS += -lm
 LDFLAGS +=
 
