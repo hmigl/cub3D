@@ -16,6 +16,10 @@ struct s_map {
 	char	*ea_texture;
 	char	*floor_color;
 	char	*ceilling_color;
+	int		fd;
 };
+
+// parsing
+void	parse_map(t_map *map, const char *filepath);
 
 #endif // CUB3D_H

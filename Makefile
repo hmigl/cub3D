@@ -13,6 +13,8 @@ OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
 SRC = cub3d.c
 
+SRC += parse_map.c
+
 $(OBJDIR)/%.o: %.c
 	$(COMPILE.c) $(OUTPUT_OPTION) $<
 
