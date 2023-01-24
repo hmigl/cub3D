@@ -8,9 +8,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_map	t_map;
+typedef struct s_scene_desc	t_scene;
 
-struct s_map {
+struct s_scene_desc {
 	char	*no_texture;
 	char	*so_texture;
 	char	*we_texture;
@@ -29,6 +29,6 @@ enum e_error_desc {
 void	display_error_msg_and_exit(enum e_error_desc desc);
 
 // parsing
-void	parse_map(t_map *map, const char *filepath);
+void	parse_scene(t_scene *scene, const char *filepath);
 
 #endif // CUB3D_H

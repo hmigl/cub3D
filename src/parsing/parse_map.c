@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-static int	open_map(const char *filepath)
+static int	open_file(const char *filepath)
 {
 	int	fd;
 
@@ -13,9 +13,9 @@ static int	open_map(const char *filepath)
 	return (fd);
 }
 
-void	parse_map(t_map *map, const char *filepath)
+void	parse_scene(t_scene *scene, const char *filepath)
 {
 	if (!ft_check_ext(filepath, ".cub"))
 		display_error_msg_and_exit(INVALID_EXT);
-	map->fd = open_map(filepath);
+	scene->fd = open_file(filepath);
 }
