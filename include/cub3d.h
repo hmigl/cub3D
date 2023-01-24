@@ -20,8 +20,13 @@ struct s_map {
 	int		fd;
 };
 
+enum e_error_desc {
+	WRONG_USAGE,
+	INVALID_EXT,
+};
+
 // error handling
-void	display_usage_and_exit(void);
+void	display_error_msg_and_exit(enum e_error_desc desc);
 
 // parsing
 void	parse_map(t_map *map, const char *filepath);

@@ -16,6 +16,6 @@ static int	open_map(const char *filepath)
 void	parse_map(t_map *map, const char *filepath)
 {
 	if (!ft_check_ext(filepath, ".cub"))
-		display_usage_and_exit();
+		display_error_msg_and_exit(INVALID_EXT);
 	map->fd = open_map(filepath);
 }

@@ -19,6 +19,8 @@ SRC = cub3d.c
 
 SRC += parse_map.c
 
+SRC += error_handling.c
+
 $(OBJDIR)/%.o: %.c
 	$(COMPILE.c) $(OUTPUT_OPTION) $<
 
