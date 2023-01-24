@@ -25,6 +25,11 @@ enum e_error_desc {
 	INVALID_EXT,
 };
 
+enum e_type_id {
+	PATH_TO_TEXTURE,
+	COLOR
+};
+
 // error handling
 void	display_error_msg_and_exit(enum e_error_desc desc);
 
