@@ -6,7 +6,7 @@
 /*   By: hmigl <hmigl@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:31:23 by hmigl             #+#    #+#             */
-/*   Updated: 2023/01/23 13:45:41 by hmigl            ###   ########.fr       */
+/*   Updated: 2023/01/24 16:38:12 by hmigl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 char		**ft_split(char const *s, char c);
 int			ft_check_ext(const char *str, const char *ext);
 void		ft_free_matrix(char **matrix);
+
+char		*get_next_line(int fd);
 
 typedef struct s_list
 {
