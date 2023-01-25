@@ -19,7 +19,7 @@ static void	fetch_element(t_scene *scene, const char *line)
 	ft_strlcpy(possible_scene_element, line, 3);
 	type_identifier = get_type_id(possible_scene_element);
 	if (type_identifier == PATH_TO_TEXTURE)
-		;
+		fetch_texture_path(scene, line);
 	else
 		;
 }

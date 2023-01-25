@@ -17,7 +17,7 @@ OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
 SRC = cub3d.c
 
-SRC += parse_map.c
+SRC += parse_map.c fetch_scene_elements.c fetch_texture_path.c
 
 SRC += error_handling.c
 
