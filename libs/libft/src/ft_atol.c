@@ -6,16 +6,11 @@
 /*   By: hmigl <hmigl@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 10:44:41 by hmigl             #+#    #+#             */
-/*   Updated: 2022/02/04 11:04:08 by hmigl            ###   ########.fr       */
+/*   Updated: 2023/01/27 18:44:07 by hmigl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_isspace(int c)
-{
-	return (c == ' ' || (c >= '\t' && c <= '\r'));
-}
 
 long long int	ft_atol(const char *nptr)
 {

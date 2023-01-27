@@ -6,7 +6,7 @@
 /*   By: hmigl <hmigl@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 14:31:23 by hmigl             #+#    #+#             */
-/*   Updated: 2023/01/24 16:38:12 by hmigl            ###   ########.fr       */
+/*   Updated: 2023/01/27 18:43:31 by hmigl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int			ft_isprint(int c);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
 int			ft_isnumber(char *number);
+int			ft_isspace(int c);
 
 void		ft_bzero(void *s, size_t n);
 void		*ft_memset(void *s, int c, size_t n);

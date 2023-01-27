@@ -17,7 +17,7 @@ SRC = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 	  ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c ft_check_ext.c \
 	  ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 	  ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_free_matrix.c \
-	  ft_isnumber.c ft_atol.c get_next_line.c
+	  ft_isnumber.c ft_atol.c ft_isspace.c get_next_line.c
 
 $(OBJDIR)/%.o: %.c
 	$(COMPILE.c) $(OUTPUT_OPTION) $<
