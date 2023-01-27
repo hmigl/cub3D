@@ -13,11 +13,11 @@ static enum e_type_id	get_type_id(const char *element)
 
 static void	extract_element(t_scene *scene, const char *line)
 {
-	char			possible_scene_element[3];
+	char			scene_element[3];
 	enum e_type_id	type_identifier;
 
-	ft_strlcpy(possible_scene_element, line, 3);
-	type_identifier = get_type_id(possible_scene_element);
+	ft_strlcpy(scene_element, line, 3);
+	type_identifier = get_type_id(scene_element);
 	if (type_identifier == PATH_TO_TEXTURE)
 		extract_texture_path(scene, line);
 	else
@@ -41,9 +41,7 @@ static char	*gnl_trim(int fd)
 	char	*buffer;
 
 	buffer = get_next_line(fd);
-	if (buffer == NULL || ft_strrchr(buffer, '\n') == NULL)
-		return (NULL);
-	line = ft_strtrim(buffer, "\n");
+	line = trim_line(buffer);
 	free(buffer);
 	return (line);
 }
