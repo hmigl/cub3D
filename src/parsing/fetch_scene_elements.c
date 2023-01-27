@@ -49,14 +49,21 @@ static char	*gnl_trim(int fd)
 
 void	fetch_scene_elements(t_scene *scene)
 {
+	int		elements;
 	char	*line;
 
+	elements = 0;
 	line = gnl_trim(scene->fd);
 	while (line != NULL)
 	{
 		if (is_valid_scene_element(line))
+		{
 			fetch_element(scene, line);
+			elements++;
+		}
 		free(line);
 		line = gnl_trim(scene->fd);
 	}
+	if (elements != 6)
+		display_error_msg_and_exit(MISSING_ELEMENT);
 }

@@ -23,6 +23,7 @@ struct s_scene_desc {
 enum e_error_desc {
 	WRONG_USAGE,
 	INVALID_EXT,
+	MISSING_ELEMENT
 };
 
 enum e_type_id {
