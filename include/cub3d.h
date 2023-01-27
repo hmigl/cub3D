@@ -44,7 +44,7 @@ void	display_error_msg_and_exit(enum e_error_desc desc);
 
 // parsing
 void	parse_scene(t_scene *scene, const char *filepath);
-void	fetch_scene_elements(t_scene *scene);
-void	fetch_texture_path(t_scene *scene, const char *line);
+void	extract_scene_elements(t_scene *scene);
+void	extract_texture_path(t_scene *scene, const char *line);
 
 #endif // CUB3D_H

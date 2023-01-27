@@ -41,7 +41,7 @@ static enum e_texture_path	get_direction_value(const char c)
 	return (-1);
 }
 
-void	fetch_texture_path(t_scene *scene, const char *line)
+void	extract_texture_path(t_scene *scene, const char *line)
 {
 	int			texture_file_fd;
 	int			texture_numerical_value;

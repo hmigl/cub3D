@@ -11,7 +11,7 @@ static enum e_type_id	get_type_id(const char *element)
 		return (COLOR);
 }
 
-static void	fetch_element(t_scene *scene, const char *line)
+static void	extract_element(t_scene *scene, const char *line)
 {
 	char			possible_scene_element[3];
 	enum e_type_id	type_identifier;
@@ -19,9 +19,10 @@ static void	fetch_element(t_scene *scene, const char *line)
 	ft_strlcpy(possible_scene_element, line, 3);
 	type_identifier = get_type_id(possible_scene_element);
 	if (type_identifier == PATH_TO_TEXTURE)
-		fetch_texture_path(scene, line);
+		extract_texture_path(scene, line);
 	else
 		;
+		// fetch_rgb_colors(scene, line);
 }
 
 static int	is_valid_scene_element(const char *e)
@@ -47,7 +48,7 @@ static char	*gnl_trim(int fd)
 	return (line);
 }
 
-void	fetch_scene_elements(t_scene *scene)
+void	extract_scene_elements(t_scene *scene)
 {
 	int		elements;
 	char	*line;
@@ -58,7 +59,7 @@ void	fetch_scene_elements(t_scene *scene)
 	{
 		if (is_valid_scene_element(line))
 		{
-			fetch_element(scene, line);
+			extract_element(scene, line);
 			elements++;
 		}
 		free(line);
