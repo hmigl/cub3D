@@ -6,6 +6,7 @@ OBJDIR := objdir
 CFLAGS += $(INCLUDE) -Wall -Wextra -g
 LDLIBS += -lm -lft
 LDFLAGS += -L$(LIBFTDIR)
+LINK.o += $(LDLIBS)
 INCLUDE = -I./include -I$(LIBFTDIR)/include
 
 LIBFTDIR = ./libs/libft
@@ -13,21 +14,22 @@ LIBFT := $(LIBFTDIR)/libft.a
 
 vpath %.c $(shell find src -type d)
 
-OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
-
 SRC = cub3d.c
 
 SRC += parse_map.c fetch_scene_elements.c fetch_texture_path.c
 
 SRC += error_handling.c
 
-$(OBJDIR)/%.o: %.c
-	$(COMPILE.c) $(OUTPUT_OPTION) $<
+OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
+DEPS = $(OBJS:.o=.d)
+
+$(OBJDIR)/%.o: %.c Makefile
+	$(COMPILE.c) -MMD -MP $(OUTPUT_OPTION) $<
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(OBJS) -o $@ $(LDFLAGS) $(LDLIBS)
+	$(LINK.o) $(OUTPUT_OPTION) $^
 
 options:
 	@echo "$(NAME) build options:"
@@ -46,7 +48,7 @@ $(OBJDIR):
 
 clean:
 	$(MAKE) clean -C$(LIBFTDIR) --no-print-directory
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(DEPS)
 
 fclean: clean
 	$(MAKE) fclean -C$(LIBFTDIR) --no-print-directory
@@ -55,3 +57,5 @@ fclean: clean
 re: fclean all
 
 .PHONY: all re
+
+-include $(DEPS)
