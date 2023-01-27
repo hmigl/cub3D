@@ -51,7 +51,7 @@ void	fetch_texture_path(t_scene *scene, const char *line)
 	texture_numerical_value = get_direction_value(line[0]);
 	textures_freq[texture_numerical_value]++;
 	if (textures_freq[texture_numerical_value] > 1)
-		exit(2);
+		display_error_msg_and_exit(REDUNDANT_ELEMENT);
 	leading_spcs_start = &(line[2]);
 	texture_file_fd
 		= open(&(line[find_object_info(leading_spcs_start)]), O_RDONLY);

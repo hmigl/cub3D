@@ -10,6 +10,8 @@ void	display_error_msg_and_exit(enum e_error_desc desc)
 		error_msg = "file must contain '.cub' extension\n";
 	else if (desc == MISSING_ELEMENT)
 		error_msg = "scene has missing elements, check your file\n";
+	else if (desc == REDUNDANT_ELEMENT)
+		error_msg = "scene has redundant elements, check your file\n";
 	else
 		error_msg = "an unknown error has occurred\n";
 	write(STDERR_FILENO, "Error\n", ft_strlen("Error\n"));
