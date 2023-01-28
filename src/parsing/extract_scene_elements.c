@@ -11,7 +11,7 @@ static enum e_type_id	get_type_id(const char *element)
 		return (COLOR);
 }
 
-static void	extract_element(t_scene *scene, const char *line)
+static int	extract_element(t_scene *scene, const char *line)
 {
 	char			scene_element[3];
 	enum e_type_id	type_identifier;
@@ -22,6 +22,7 @@ static void	extract_element(t_scene *scene, const char *line)
 		extract_texture_path(scene, line);
 	else
 		extract_rgb_color(scene, line);
+	return (1);
 }
 
 static int	is_valid_scene_element(const char *e)
@@ -34,13 +35,16 @@ static int	is_valid_scene_element(const char *e)
 		|| !ft_strncmp(e, "C ", 2));
 }
 
-static char	*gnl_trim(int fd)
+static char	*gnl_trim(int fd, int extracted_elements)
 {
 	char	*line;
 	char	*buffer;
 
 	buffer = get_next_line(fd);
-	line = trim_line(buffer);
+	if (extracted_elements != 6)
+		line = trim_line(buffer);
+	else
+		line = ft_strtrim(buffer, "\n");
 	free(buffer);
 	return (line);
 }
@@ -51,16 +55,15 @@ void	extract_scene_elements(t_scene *scene)
 	char	*line;
 
 	elements = 0;
-	line = gnl_trim(scene->fd);
+	line = gnl_trim(scene->fd, elements);
 	while (line != NULL)
 	{
 		if (is_valid_scene_element(line))
-		{
-			extract_element(scene, line);
-			elements++;
-		}
+			elements += extract_element(scene, line);
+		else if (!is_valid_scene_element(line) && line[0] != '\0')
+			break ;
 		free(line);
-		line = gnl_trim(scene->fd);
+		line = gnl_trim(scene->fd, elements);
 	}
 	if (elements != 6)
 		display_error_msg_and_exit(MISSING_ELEMENT);
