@@ -21,8 +21,7 @@ static void	extract_element(t_scene *scene, const char *line)
 	if (type_identifier == PATH_TO_TEXTURE)
 		extract_texture_path(scene, line);
 	else
-		;
-		// fetch_rgb_colors(scene, line);
+		extract_rgb_color(scene, line);
 }
 
 static int	is_valid_scene_element(const char *e)

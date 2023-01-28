@@ -15,8 +15,8 @@ struct s_scene_desc {
 	char	*so_texture;
 	char	*we_texture;
 	char	*ea_texture;
-	char	*floor_color;
-	char	*ceilling_color;
+	int		floor_color;
+	int		ceiling_color;
 	int		fd;
 };
 
@@ -24,7 +24,8 @@ enum e_error_desc {
 	WRONG_USAGE,
 	INVALID_EXT,
 	MISSING_ELEMENT,
-	REDUNDANT_ELEMENT
+	REDUNDANT_ELEMENT,
+	MALFORMED_INFO
 };
 
 enum e_type_id {
@@ -46,6 +47,7 @@ void	display_error_msg_and_exit(enum e_error_desc desc);
 void	parse_scene(t_scene *scene, const char *filepath);
 void	extract_scene_elements(t_scene *scene);
 void	extract_texture_path(t_scene *scene, const char *line);
+void	extract_rgb_color(t_scene *scene, const char *line);
 char	*trim_line(const char *line);
 
 #endif // CUB3D_H

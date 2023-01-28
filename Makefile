@@ -17,7 +17,7 @@ vpath %.c $(shell find src -type d)
 SRC = cub3d.c
 
 SRC += parse_scene.c extract_scene_elements.c extract_texture_path.c \
-       trim_line.c
+       extract_rgb_color.c trim_line.c
 
 SRC += error_handling.c
 
