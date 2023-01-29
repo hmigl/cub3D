@@ -35,20 +35,6 @@ static int	is_valid_scene_element(const char *e)
 		|| !ft_strncmp(e, "C ", 2));
 }
 
-static char	*gnl_trim(int fd, int extracted_elements)
-{
-	char	*line;
-	char	*buffer;
-
-	buffer = get_next_line(fd);
-	if (extracted_elements != 6)
-		line = trim_line(buffer);
-	else
-		line = ft_strtrim(buffer, "\n");
-	free(buffer);
-	return (line);
-}
-
 void	extract_scene_elements(t_scene *scene)
 {
 	int		elements;

@@ -48,6 +48,6 @@ void	parse_scene(t_scene *scene, const char *filepath);
 void	extract_scene_elements(t_scene *scene);
 void	extract_texture_path(t_scene *scene, const char *line);
 void	extract_rgb_color(t_scene *scene, const char *line);
-char	*trim_line(const char *line);
+char	*gnl_trim(int fd, int extracted_elements);
 
 #endif // CUB3D_H

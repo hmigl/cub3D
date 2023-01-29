@@ -22,7 +22,7 @@ static int	copy_char(const char c, int trimmed_index, char *trimmed)
 	return (trimmed_index);
 }
 
-char	*trim_line(const char *line)
+static char	*trim_line(const char *line)
 {
 	int		i;
 	int		len;
@@ -42,4 +42,18 @@ char	*trim_line(const char *line)
 		trimmed_index = copy_char(line[i++], trimmed_index, trimmed_line);
 	}
 	return (trimmed_line);
+}
+
+char	*gnl_trim(int fd, int extracted_elements)
+{
+	char	*line;
+	char	*buffer;
+
+	buffer = get_next_line(fd);
+	if (extracted_elements != 6)
+		line = trim_line(buffer);
+	else
+		line = ft_strtrim(buffer, "\n");
+	free(buffer);
+	return (line);
 }
