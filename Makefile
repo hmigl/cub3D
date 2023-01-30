@@ -1,9 +1,9 @@
 SHELL := /bin/sh
 
-NAME := cub3d
+NAME := cub3D
 OBJDIR := objdir
 
-CFLAGS += $(INCLUDE) -Wall -Wextra -g
+CFLAGS += $(INCLUDE) -Wall -Wextra -g -MMD -MP
 LDLIBS += -lm -lft
 LDFLAGS += -L$(LIBFTDIR)
 LINK.o += $(LDLIBS)
@@ -25,7 +25,7 @@ OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 DEPS = $(OBJS:.o=.d)
 
 $(OBJDIR)/%.o: %.c Makefile
-	$(COMPILE.c) -MMD -MP $(OUTPUT_OPTION) $<
+	$(COMPILE.c) $(OUTPUT_OPTION) $<
 
 all: $(NAME)
 
@@ -48,11 +48,11 @@ $(OBJDIR):
 	mkdir $@
 
 clean:
-	$(MAKE) clean -C$(LIBFTDIR) --no-print-directory
+	$(MAKE) $@ -C$(LIBFTDIR) --no-print-directory
 	$(RM) $(OBJS) $(DEPS)
 
 fclean: clean
-	$(MAKE) fclean -C$(LIBFTDIR) --no-print-directory
+	$(MAKE) $@ -C$(LIBFTDIR) --no-print-directory
 	$(RM) $(NAME)
 
 re: fclean all
