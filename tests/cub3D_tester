@@ -1,0 +1,29 @@
+#!/bin/bash
+
+program_name=cub3D
+
+[[ -x ../"$program_name" ]] || make -C ../
+
+function assert() {
+  map_file="$1"
+  expected="$2"
+  name="$3"
+
+  ../"$program_name" "$map_file" >/dev/null 2>/dev/null
+  status=$?
+  if [[ "$status" -eq "$expected" ]]; then
+    printf "[ OK ]"
+  else
+    printf "[ KO ]"
+  fi
+
+  printf "\t(%s $name)"; echo ""
+}
+
+# Valid maps
+assert "./assets/maps/valid/simple_map.cub" 0 "simple_map_should_return_ok"
+assert "./assets/maps/valid/chaotic.cub" 0 "chaotic_map_with_spaces_everywhere_should_return_ok"
+
+# Invalid maps
+assert "./assets/maps/invalid/redundant_direction.cub" 1 "duplicated_direction_should_return_ko"
+assert "./assets/maps/invalid/missing_direction.cub" 1 "missing_direction_should_return_ko"
