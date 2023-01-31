@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-static void	set_texture_path(int direction, const char *path, t_scene *scene)
+static void	set_texture_path(int direction, const char *path, t_scene_desc *scene)
 {
 	if (direction == NO)
 		scene->no_texture = ft_strdup(path);
@@ -25,7 +25,7 @@ static enum e_texture_path	get_direction_value(const char c)
 	return (-1);
 }
 
-void	extract_texture_path(t_scene *scene, const char *line)
+void	extract_texture_path(t_scene_desc *scene, const char *line)
 {
 	int			texture_file_fd;
 	int			direction_numerical_value;

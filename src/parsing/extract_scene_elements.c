@@ -11,7 +11,7 @@ static enum e_type_id	get_type_id(const char *element)
 		return (COLOR);
 }
 
-static int	extract_element(t_scene *scene, const char *line)
+static int	extract_element(t_scene_desc *scene, const char *line)
 {
 	char			scene_element[3];
 	enum e_type_id	type_identifier;
@@ -35,7 +35,7 @@ static int	is_valid_scene_element(const char *e)
 		|| !ft_strncmp(e, "C ", 2));
 }
 
-void	extract_scene_elements(t_scene *scene)
+void	extract_scene_elements(t_scene_desc *scene)
 {
 	int		elements;
 	char	*line;

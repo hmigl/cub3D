@@ -44,7 +44,7 @@ static void	check_element_redundancy(const char *line)
 		display_error_msg_and_exit(REDUNDANT_ELEMENT);
 }
 
-void	extract_rgb_color(t_scene *scene, const char *line)
+void	extract_rgb_color(t_scene_desc *scene, const char *line)
 {
 	char	**rgb_ranges;
 	int		info_index;

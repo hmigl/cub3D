@@ -8,8 +8,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_scene_desc	t_scene;
-
+typedef struct s_scene_desc	t_scene_desc;
 struct s_scene_desc {
 	char	*no_texture;
 	char	*so_texture;
@@ -44,10 +43,10 @@ enum e_texture_path {
 void	display_error_msg_and_exit(enum e_error_desc desc);
 
 // parsing
-void	parse_scene(t_scene *scene, const char *filepath);
-void	extract_scene_elements(t_scene *scene);
-void	extract_texture_path(t_scene *scene, const char *line);
-void	extract_rgb_color(t_scene *scene, const char *line);
+void	parse_scene_desc(t_scene_desc *scene, const char *filepath);
+void	extract_scene_elements(t_scene_desc *scene);
+void	extract_texture_path(t_scene_desc *scene, const char *line);
+void	extract_rgb_color(t_scene_desc *scene, const char *line);
 char	*gnl_trim(int fd, int extracted_elements);
 
 #endif // CUB3D_H
