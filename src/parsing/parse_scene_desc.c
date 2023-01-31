@@ -19,4 +19,5 @@ void	parse_scene_desc(t_scene_desc *scene, const char *filepath)
 		display_error_msg_and_exit(INVALID_EXT);
 	scene->fd = open_file(filepath);
 	extract_scene_elements(scene);
+	extract_scene_map(scene);
 }
