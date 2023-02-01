@@ -35,7 +35,7 @@ struct s_scene_desc {
 	int			floor_color;
 	int			ceiling_color;
 	int			fd;
-	t_scene_map	*map;
+	t_scene_map	map;
 };
 
 enum e_type_id {
