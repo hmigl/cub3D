@@ -18,7 +18,6 @@ static void	save_map_as_list(t_scene_desc *scene)
 void	extract_scene_map(t_scene_desc *scene)
 {
 	save_map_as_list(scene);
-	// for (t_list *tmp = scene->map->lines_as_list; tmp != NULL; tmp = tmp->next) {
-	// 	printf("%s\n", (char *)tmp->content);
-	// }
+	if (!map_premises_honored(scene->map))
+		;
 }

@@ -8,10 +8,14 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define FUNCTIONAL_MAP_MIN_SIZE 3
+
 typedef struct s_scene_map	t_scene_map;
 struct s_scene_map {
 	char	*first_line;
 	t_list	*lines_as_list;
+	int		longest_line;
+	int		lines;
 };
 
 typedef struct s_scene_desc	t_scene_desc;
@@ -56,5 +60,8 @@ void	extract_texture_path(t_scene_desc *scene, const char *line);
 void	extract_rgb_color(t_scene_desc *scene, const char *line);
 void	extract_scene_map(t_scene_desc *scene);
 char	*gnl_trim(int fd, int extracted_elements);
+
+// map validation
+int		map_premises_honored(t_scene_map *map);
 
 #endif // CUB3D_H
