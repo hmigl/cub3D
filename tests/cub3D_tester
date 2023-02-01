@@ -27,3 +27,5 @@ assert "./assets/maps/valid/chaotic.cub" 0 "chaotic_map_with_spaces_everywhere_s
 # Invalid maps
 assert "./assets/maps/invalid/redundant_direction.cub" 1 "duplicated_direction_should_return_ko"
 assert "./assets/maps/invalid/missing_direction.cub" 1 "missing_direction_should_return_ko"
+assert "./assets/maps/invalid/invalid_chars.cub" 1 "map_with_invalid_chars_should_return_ko"
+assert "./assets/maps/invalid/less_than_min_size.cub" 1 "too_small_map_should_return_ko"
