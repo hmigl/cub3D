@@ -15,7 +15,7 @@ static void	check_rgb_colors_range(char **rgb_ranges)
 	{
 		value = ft_atoi(rgb_ranges[i]);
 		if (!(value >= 0 && value <= 255))
-			display_error_msg_and_exit(MALFORMED_INFO);
+			display_error_msg_and_exit(MALFORMED_ELEMENT);
 	}
 }
 
@@ -30,7 +30,7 @@ static void	count_commas(const char *str)
 		if (str[i] == ',')
 			comma_count++;
 	if (comma_count != 2)
-		display_error_msg_and_exit(MALFORMED_INFO);
+		display_error_msg_and_exit(MALFORMED_ELEMENT);
 }
 
 static void	check_element_redundancy(const char *line)

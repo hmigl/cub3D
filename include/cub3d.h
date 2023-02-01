@@ -9,6 +9,13 @@
 # include <unistd.h>
 
 # define FUNCTIONAL_MAP_MIN_SIZE 3
+# define VALID_CHARS "01 NSEW"
+
+# define WRONG_USAGE "usage: ./cub3D FILE"
+# define INVALID_EXT "file must end with '.cub' extension"
+# define MISSING_ELEMENT "scene has missing elements"
+# define REDUNDANT_ELEMENT "scene has redundant elements"
+# define MALFORMED_ELEMENT "malformed scene element(s)"
 
 typedef struct s_scene_map	t_scene_map;
 struct s_scene_map {
@@ -30,14 +37,6 @@ struct s_scene_desc {
 	t_scene_map	*map;
 };
 
-enum e_error_desc {
-	WRONG_USAGE,
-	INVALID_EXT,
-	MISSING_ELEMENT,
-	REDUNDANT_ELEMENT,
-	MALFORMED_INFO
-};
-
 enum e_type_id {
 	PATH_TO_TEXTURE,
 	COLOR
@@ -51,7 +50,7 @@ enum e_texture_path {
 };
 
 // error handling
-void	display_error_msg_and_exit(enum e_error_desc desc);
+void	display_error_msg_and_exit(char *error_msg);
 
 // parsing
 void	parse_scene_desc(t_scene_desc *scene, const char *filepath);
