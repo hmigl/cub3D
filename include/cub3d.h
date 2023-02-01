@@ -13,9 +13,9 @@
 typedef struct s_scene_map	t_scene_map;
 struct s_scene_map {
 	char	*first_line;
-	t_list	*lines_as_list;
+	t_list	*rows_as_list;
 	int		longest_line;
-	int		lines;
+	int		rows;
 };
 
 typedef struct s_scene_desc	t_scene_desc;
