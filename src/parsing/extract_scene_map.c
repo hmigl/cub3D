@@ -19,5 +19,8 @@ void	extract_scene_map(t_scene_desc *scene)
 {
 	save_map_as_list(scene);
 	if (!map_premises_honored(&(scene->map)))
+	{
+		scene_clean_up(scene);
 		display_error_msg_and_exit(INVALID_MAP);
+	}
 }

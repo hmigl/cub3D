@@ -53,6 +53,10 @@ enum e_texture_path {
 // error handling
 void	display_error_msg_and_exit(char *error_msg);
 
+// memory management
+void	scene_clean_up(t_scene_desc *scene);
+void	map_clean_up(t_scene_map *map);
+
 // parsing
 void	parse_scene_desc(t_scene_desc *scene, const char *filepath);
 void	extract_scene_elements(t_scene_desc *scene);

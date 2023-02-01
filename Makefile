@@ -14,7 +14,7 @@ LIBFT := $(LIBFTDIR)/libft.a
 
 vpath %.c $(shell find src -type d)
 
-SRC = cub3d.c
+SRC = cub3d.c release_memory.c
 
 SRC += parse_scene_desc.c extract_scene_elements.c extract_texture_path.c \
        extract_rgb_color.c extract_scene_map.c trim_line.c \
