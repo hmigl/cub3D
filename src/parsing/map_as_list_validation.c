@@ -1,5 +1,26 @@
 #include "cub3d.h"
 
+static int	map_contain_only_valid_chars(t_list *head)
+{
+	int		i;
+	t_list	*aux;
+	char	*row;
+
+	if (head == NULL)
+		return (0);
+	aux = head;
+	while (aux != NULL)
+	{
+		i = -1;
+		row = aux->content;
+		while (row[++i])
+			if (!ft_strchr(VALID_CHARS, row[i]))
+				return (0);
+		aux = aux->next;
+	}
+	return (1);
+}
+
 static int	get_longest_row_size(t_list *head)
 {
 	t_list	*aux;
@@ -29,6 +50,8 @@ int	map_premises_honored(t_scene_map *map)
 		return (0);
 	if (map->longest_line < FUNCTIONAL_MAP_MIN_SIZE
 		|| map->rows < FUNCTIONAL_MAP_MIN_SIZE)
+		return (0);
+	if (!map_contain_only_valid_chars(map->rows_as_list))
 		return (0);
 	return (1);
 }

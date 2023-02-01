@@ -16,6 +16,7 @@
 # define MISSING_ELEMENT "scene has missing elements"
 # define REDUNDANT_ELEMENT "scene has redundant elements"
 # define MALFORMED_ELEMENT "malformed scene element(s)"
+# define INVALID_MAP "invalid map"
 
 typedef struct s_scene_map	t_scene_map;
 struct s_scene_map {
