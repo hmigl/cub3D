@@ -1,5 +1,28 @@
 #include "cub3d.h"
 
+static int	map_contains_exactly_one_player(t_list *head)
+{
+	int		i;
+	int		player_count;
+	t_list	*aux;
+	char	*row;
+
+	if (head == NULL)
+		return (0);
+	player_count = 0;
+	aux = head;
+	while (aux != NULL)
+	{
+		i = -1;
+		row = aux->content;
+		while (row[++i])
+			if (ft_strchr(PLAYER_CHARS, row[i]))
+				player_count++;
+		aux = aux->next;
+	}
+	return (player_count == 1);
+}
+
 static int	map_contains_only_valid_chars(t_list *head)
 {
 	int		i;
@@ -52,6 +75,8 @@ int	map_premises_honored(t_scene_map *map)
 		|| map->rows < FUNCTIONAL_MAP_MIN_SIZE)
 		return (0);
 	if (!map_contains_only_valid_chars(map->rows_as_list))
+		return (0);
+	if (!map_contains_exactly_one_player(map->rows_as_list))
 		return (0);
 	return (1);
 }

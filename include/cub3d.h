@@ -10,6 +10,7 @@
 
 # define FUNCTIONAL_MAP_MIN_SIZE 3
 # define VALID_CHARS "01 NSEW"
+# define PLAYER_CHARS "NSEW"
 
 # define WRONG_USAGE "usage: ./cub3D FILE"
 # define INVALID_EXT "file must end with '.cub' extension"
