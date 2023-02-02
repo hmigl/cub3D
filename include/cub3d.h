@@ -25,6 +25,7 @@ struct s_scene_map {
 	t_list	*rows_as_list;
 	int		longest_line;
 	int		rows;
+	char	**map_as_2d_array;
 };
 
 typedef struct s_scene_desc	t_scene_desc;
