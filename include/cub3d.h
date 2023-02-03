@@ -23,7 +23,7 @@ typedef struct s_scene_map	t_scene_map;
 struct s_scene_map {
 	char	*first_line;
 	t_list	*rows_as_list;
-	int		longest_line;
+	int		cols;
 	int		rows;
 	char	**map_as_2d_array;
 };

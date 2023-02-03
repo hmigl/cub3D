@@ -44,7 +44,7 @@ static int	map_contains_only_valid_chars(t_list *head)
 	return (1);
 }
 
-static int	get_longest_row_size(t_list *head)
+static int	get_column_size(t_list *head)
 {
 	t_list	*aux;
 	int		longest_row_size;
@@ -67,11 +67,11 @@ static int	get_longest_row_size(t_list *head)
 
 int	map_premises_honored(t_scene_map *map)
 {
-	map->longest_line = get_longest_row_size(map->rows_as_list);
+	map->cols = get_column_size(map->rows_as_list);
 	map->rows = ft_lstsize(map->rows_as_list);
 	if (map->rows_as_list == NULL)
 		return (0);
-	if (map->longest_line < FUNCTIONAL_MAP_MIN_SIZE
+	if (map->cols < FUNCTIONAL_MAP_MIN_SIZE
 		|| map->rows < FUNCTIONAL_MAP_MIN_SIZE)
 		return (0);
 	if (!map_contains_only_valid_chars(map->rows_as_list))

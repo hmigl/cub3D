@@ -24,7 +24,7 @@ static void	reconstruct_map_as_2d_array(t_scene_map *map)
 	while (++i < map->rows)
 	{
 		row = map->rows_as_list->content;
-		diff = map->longest_line - ft_strlen(row);
+		diff = map->cols - ft_strlen(row);
 		if (diff != 0)
 			row = cease_diff(diff, row);
 		map->map_as_2d_array[i] = row;
