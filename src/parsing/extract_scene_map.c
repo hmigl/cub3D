@@ -79,4 +79,10 @@ void	extract_scene_map(t_scene_desc *scene)
 	}
 	reconstruct_map_as_2d_array(&(scene->map));
 	set_player_starting_point(&(scene->map));
+	if (!is_map_surrounded_by_walls(&(scene->map)))
+	{
+		scene_clean_up(scene);
+		printf("ratinhooo\n");
+		display_error_msg_and_exit(INVALID_MAP);
+	}
 }

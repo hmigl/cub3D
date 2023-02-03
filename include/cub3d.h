@@ -71,5 +71,6 @@ char	*gnl_trim(int fd, int extracted_elements);
 
 // map validation
 int		map_premises_honored(t_scene_map *map);
+int		is_map_surrounded_by_walls(t_scene_map *map);
 
 #endif // CUB3D_H
