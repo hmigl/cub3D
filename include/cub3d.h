@@ -26,6 +26,8 @@ struct s_scene_map {
 	int		cols;
 	int		rows;
 	char	**map_as_2d_array;
+	int		x_start_pos;
+	int		y_start_pos;
 };
 
 typedef struct s_scene_desc	t_scene_desc;

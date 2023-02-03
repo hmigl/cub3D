@@ -1,5 +1,26 @@
 #include "cub3d.h"
 
+static void	set_player_starting_point(t_scene_map *map)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (map->map_as_2d_array[++i])
+	{
+		j = -1;
+		while (map->map_as_2d_array[i][++j])
+		{
+			if (ft_strchr(PLAYER_CHARS, map->map_as_2d_array[i][j]))
+			{
+				map->x_start_pos = i;
+				map->y_start_pos = j;
+				return ;
+			}
+		}
+	}
+}
+
 static char	*cease_diff(int diff, char *row)
 {
 	char	*tmp;
@@ -57,4 +78,5 @@ void	extract_scene_map(t_scene_desc *scene)
 		display_error_msg_and_exit(INVALID_MAP);
 	}
 	reconstruct_map_as_2d_array(&(scene->map));
+	set_player_starting_point(&(scene->map));
 }
