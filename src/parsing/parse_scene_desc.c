@@ -7,6 +7,7 @@ static int	open_file(const char *filepath)
 	fd = open(filepath, O_RDONLY);
 	if (fd == -1)
 	{
+		ft_putendl_fd("Error", STDERR_FILENO);
 		perror("open");
 		exit(1);
 	}
@@ -20,4 +21,5 @@ void	parse_scene_desc(t_scene_desc *scene, const char *filepath)
 	scene->fd = open_file(filepath);
 	extract_scene_elements(scene);
 	extract_scene_map(scene);
+	close(scene->fd);
 }
