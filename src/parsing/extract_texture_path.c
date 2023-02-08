@@ -38,6 +38,7 @@ void	extract_texture_path(t_scene_desc *scene, const char *line)
 	texture_file_fd = open(&(line[3]), O_RDONLY);
 	if (texture_file_fd == -1)
 	{
+		ft_putendl_fd("Error", STDERR_FILENO);
 		perror("open");
 		exit(1);
 	}
