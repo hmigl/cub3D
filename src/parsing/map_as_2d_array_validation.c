@@ -38,6 +38,14 @@ static int	flood_fill(struct s_flood_fill args, int x, int y)
 			return (0);
 		if (!flood_fill(args, x, y + 1))
 			return (0);
+		if (!flood_fill(args, x + 1, y + 1))
+			return (0);
+		if (!flood_fill(args, x + 1, y - 1))
+			return (0);
+		if (!flood_fill(args, x - 1, y - 1))
+			return (0);
+		if (!flood_fill(args, x - 1, y + 1))
+			return (0);
 	}
 	return (1);
 }

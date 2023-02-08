@@ -11,12 +11,14 @@ static void	check_rgb_colors_range(char **rgb_ranges)
 	int	value;
 
 	i = -1;
-	while (++i < 3)
+	while (rgb_ranges[++i] != NULL)
 	{
 		value = ft_atoi(rgb_ranges[i]);
 		if (!(value >= 0 && value <= 255))
 			display_error_msg_and_exit(MALFORMED_ELEMENT);
 	}
+	if (i != 2 || rgb_ranges[2] == NULL)
+		display_error_msg_and_exit(MALFORMED_ELEMENT);
 }
 
 static void	count_commas(const char *str)
