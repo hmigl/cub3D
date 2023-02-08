@@ -4,8 +4,12 @@
 # include "libft.h"
 # include <fcntl.h>
 # include <math.h>
+# include <mlx.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
+# include <X11/X.h>
+# include <X11/keysymdef.h>
 # include <unistd.h>
 
 # define FUNCTIONAL_MAP_MIN_SIZE 3

@@ -4,7 +4,7 @@ NAME := cub3D
 OBJDIR := objdir
 
 CFLAGS += $(INCLUDE) -Wall -Wextra -g -MMD -MP
-LDLIBS += -lm -lft
+LDLIBS += -lm -lft -lmlx -lXext -lX11 -lft
 LDFLAGS += -L$(LIBFTDIR)
 LINK.o += $(LDLIBS)
 INCLUDE = -I./include -I$(LIBFTDIR)/include
