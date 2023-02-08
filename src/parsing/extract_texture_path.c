@@ -1,6 +1,7 @@
 #include "cub3d.h"
 
-static void	set_texture_path(int direction, const char *path, t_scene_desc *scene)
+static void	set_texture_path(int direction, const char *path,
+							t_scene_desc *scene)
 {
 	if (direction == NO)
 		scene->no_texture = ft_strdup(path);
