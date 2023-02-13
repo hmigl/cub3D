@@ -23,6 +23,9 @@
 # define MALFORMED_ELEMENT "malformed scene element(s)"
 # define INVALID_MAP "invalid map"
 
+# define WINDOW_X 700 
+# define WINDOW_Y 430
+
 typedef struct s_scene_map	t_scene_map;
 struct s_scene_map {
 	char	*first_line;
@@ -58,6 +61,21 @@ enum e_texture_path {
 	WE
 };
 
+typedef struct s_game
+{
+	void	*mlx;
+	void	*win;
+} t_game;
+
+typedef struct s_data {
+	char	*name;
+	int		*addr;
+	void	*img;
+	int		bits_per_pixel;
+	int		size_line;
+	int		endian;
+} t_data;
+
 // error handling
 void	display_error_msg_and_exit(char *error_msg);
 
@@ -76,5 +94,8 @@ char	*gnl_trim(int fd, int extracted_elements);
 // map validation
 int		map_premises_honored(t_scene_map *map);
 int		is_map_surrounded_by_walls(t_scene_map *map);
+
+// render
+void	init_window(t_game *game, t_data *data);
 
 #endif // CUB3D_H

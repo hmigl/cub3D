@@ -3,9 +3,9 @@ SHELL := /bin/sh
 NAME := cub3D
 OBJDIR := objdir
 
-CFLAGS += $(INCLUDE) -Wall -Wextra -g -MMD -MP
+CFLAGS += $(INCLUDE) -Wall -Wextra -g -MMD -MP 
 LDLIBS += -lm -lft -lmlx -lXext -lX11 -lft
-LDFLAGS += -L$(LIBFTDIR)
+LDFLAGS += -L$(LIBFTDIR) -L/usr/local/lib/
 LINK.o += $(LDLIBS)
 INCLUDE = -I./include -I$(LIBFTDIR)/include
 
@@ -18,7 +18,7 @@ SRC = cub3d.c release_memory.c
 
 SRC += parse_scene_desc.c extract_scene_elements.c extract_texture_path.c \
        extract_rgb_color.c extract_scene_map.c trim_line.c \
-       map_as_list_validation.c map_as_2d_array_validation.c
+       map_as_list_validation.c map_as_2d_array_validation.c render.c
 
 SRC += error_handling.c
 
@@ -31,7 +31,7 @@ $(OBJDIR)/%.o: %.c Makefile
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(LINK.o) $(OUTPUT_OPTION) $^
+	$(CC) $(OBJS) -o $@ $(LDLIBS) $(LDFLAGS)
 
 options:
 	@echo "$(NAME) build options:"
