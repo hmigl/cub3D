@@ -7,9 +7,10 @@ void	draw_background(t_game *game)
 	int	floor_color;
 	int	ceil_color;
 
-	game->data = malloc(sizeof(t_data));
 	ceil_color = mlx_get_color_value(game->mlx, 0x000000);
 	floor_color = mlx_get_color_value(game->mlx, 0x11031C);
+	if (game->data->img)
+		mlx_destroy_image(game->mlx, game->data->img);
 	game->data->img = mlx_new_image(game->mlx, WINDOW_X, WINDOW_Y);
 	game->data->addr = (int*)mlx_get_data_addr(game->data->img, &game->data->bits_per_pixel, &game->data->size_line, &game->data->endian);
 	i = 0;
@@ -68,5 +69,6 @@ void	init_window(t_game *game)
 {
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, WINDOW_X, WINDOW_Y, "cub3D");
+	game->data = malloc(sizeof(t_data));
 	game_run(game);
 }
