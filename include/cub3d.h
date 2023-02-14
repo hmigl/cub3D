@@ -9,6 +9,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <X11/X.h>
+# include <X11/keysym.h>
 # include <X11/keysymdef.h>
 # include <unistd.h>
 
@@ -25,8 +26,6 @@
 
 # define WINDOW_X 700 
 # define WINDOW_Y 430
-
-# define ESC 0xff1b
 
 typedef struct s_scene_map	t_scene_map;
 struct s_scene_map {

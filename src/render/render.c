@@ -14,7 +14,6 @@ void	draw_background(t_game *game)
 	game->data->img = mlx_new_image(game->mlx, WINDOW_X, WINDOW_Y);
 	game->data->addr = (int*)mlx_get_data_addr(game->data->img, &game->data->bits_per_pixel, &game->data->size_line, &game->data->endian);
 	i = 0;
-	j = 0;
 	while (i < WINDOW_Y) 
 	{
 		j = 0;
@@ -39,14 +38,14 @@ int	render(t_game *game)
 
 int	press_key(int key_code)
 {
-	if (key_code == ESC)
+	if (key_code == XK_Escape)
 		exit(0);
 	return (0);
 }
 
 int	release_key(int key_code)
 {
-	if (key_code == ESC)
+	if (key_code == XK_Escape)
 		exit(0);
 	return (0);
 }
