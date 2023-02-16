@@ -9,9 +9,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <X11/X.h>
-# include <X11/keysym.h>
 # include <X11/keysymdef.h>
-# include <unistd.h>
 
 # define FUNCTIONAL_MAP_MIN_SIZE 3
 # define VALID_CHARS "01 NSEW"
@@ -50,6 +48,30 @@ struct s_scene_desc {
 	t_scene_map	map;
 };
 
+typedef struct s_img		t_img;
+struct s_img {
+	char	*name;
+	int		*addr;
+	void	*img;
+	int		bits_per_pixel;
+	int		size_line;
+	int		endian;
+};
+
+typedef struct s_mlx		t_mlx;
+struct s_mlx {
+	void	*mlx_ptr;
+	void	*win_ptr;
+	// t_img	img;
+};
+
+typedef struct s_game		t_game;
+struct s_game {
+	t_mlx			mlx;
+	t_scene_desc	*scene;
+	// t_img	*s;
+};
+
 enum e_type_id {
 	PATH_TO_TEXTURE,
 	COLOR
@@ -61,23 +83,6 @@ enum e_texture_path {
 	EA,
 	WE
 };
-
-typedef struct s_data {
-	char	*name;
-	int		*addr;
-	void	*img;
-	int		bits_per_pixel;
-	int		size_line;
-	int		endian;
-} t_data;
-
-typedef struct s_game
-{
-	void	*mlx;
-	void	*win;
-	t_data	*data;
-} t_game;
-
 
 // error handling
 void	display_error_msg_and_exit(char *error_msg);
