@@ -17,3 +17,13 @@ void	scene_clean_up(t_scene_desc *scene)
 	free(scene->ea_texture);
 	free(scene->we_texture);
 }
+
+void	game_clean_up(t_game *game)
+{
+	scene_clean_up(game->scene);
+	if (game->mlx.mlx_ptr == NULL)
+		return ;
+	mlx_destroy_window(game->mlx.mlx_ptr, game->mlx.win_ptr);
+	mlx_destroy_display(game->mlx.mlx_ptr);
+	free(game->mlx.mlx_ptr);
+}
