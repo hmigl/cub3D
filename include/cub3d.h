@@ -21,6 +21,7 @@
 # define REDUNDANT_ELEMENT "scene has redundant elements"
 # define MALFORMED_ELEMENT "malformed scene element(s)"
 # define INVALID_MAP "invalid map"
+# define MLX_ERROR "mlx failed"
 
 # define WINDOW_X 700 
 # define WINDOW_Y 430
@@ -102,6 +103,9 @@ char	*gnl_trim(int fd, int extracted_elements);
 // map validation
 int		map_premises_honored(t_scene_map *map);
 int		is_map_surrounded_by_walls(t_scene_map *map);
+
+// setup
+void	mlx_setup(t_game *game);
 
 // render
 void	init_window(t_game *game);
