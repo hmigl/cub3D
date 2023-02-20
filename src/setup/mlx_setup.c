@@ -25,6 +25,7 @@ void	mlx_setup(t_game *game)
 		display_error_msg_and_exit(MLX_ERROR);
 	}
 	game->screen = malloc(sizeof(t_img));
+	game->screen->img = NULL;
 	game->mlx.win_ptr
 		= mlx_new_window(game->mlx.mlx_ptr, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE);
 	set_hooks(game);
