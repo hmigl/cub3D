@@ -23,8 +23,9 @@
 # define INVALID_MAP "invalid map"
 # define MLX_ERROR "mlx failed"
 
-# define WINDOW_X 700 
-# define WINDOW_Y 430
+# define WIN_WIDTH 700
+# define WIN_HEIGHT 430
+# define WIN_TITLE "cub3D"
 
 typedef struct s_scene_map	t_scene_map;
 struct s_scene_map {
@@ -63,14 +64,13 @@ typedef struct s_mlx		t_mlx;
 struct s_mlx {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	// t_img	img;
 };
 
 typedef struct s_game		t_game;
 struct s_game {
 	t_mlx			mlx;
 	t_scene_desc	*scene;
-	// t_img	*s;
+	t_img			*screen;
 };
 
 enum e_type_id {
