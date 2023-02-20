@@ -3,7 +3,7 @@
 static int	keypress_management(int keycode, t_game *game)
 {
 	if (keycode == XK_Escape)
-		;
+		exit_game_gracefully(game);
 	return (0);
 }
 
