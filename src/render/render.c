@@ -20,9 +20,9 @@ void	draw_background(t_game *game)
 		while (j < WIN_WIDTH)
 		{
 			if (i < WIN_HEIGHT / 2)
-				game->screen->addr[i * WIN_HEIGHT + j] = ceil_color;
+				game->screen->addr[i * WIN_WIDTH + j] = ceil_color;
 			else 
-				game->screen->addr[i * WIN_HEIGHT + j] = floor_color;
+				game->screen->addr[i * WIN_WIDTH + j] = floor_color;
 			j++;
 		}
 		i++;
