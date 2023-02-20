@@ -9,6 +9,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <X11/X.h>
+# include <X11/keysym.h>
 # include <X11/keysymdef.h>
 
 # define FUNCTIONAL_MAP_MIN_SIZE 3
@@ -23,8 +24,8 @@
 # define INVALID_MAP "invalid map"
 # define MLX_ERROR "mlx failed"
 
-# define WIN_WIDTH 700
 # define WIN_HEIGHT 430
+# define WIN_WIDTH 700
 # define WIN_TITLE "cub3D"
 
 typedef struct s_scene_map	t_scene_map;
@@ -109,6 +110,9 @@ int		is_map_surrounded_by_walls(t_scene_map *map);
 void	mlx_setup(t_game *game);
 
 // render
-void	init_window(t_game *game);
+int		render(t_game *game);
+
+// other
+int		exit_game_gracefully(t_game *game);
 
 #endif // CUB3D_H
