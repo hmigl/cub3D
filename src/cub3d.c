@@ -2,6 +2,7 @@
 
 static void	pre_raycasting_setup(t_game *game)
 {
+	// (pre) raycasting stuff comes before 'mlx_setup()'!
 	mlx_setup(game);
 }
 
@@ -16,6 +17,6 @@ int	main(int argc, char *argv[])
 	parse_scene_desc(&scene, argv[1]);
 	game.scene = &scene;
 	pre_raycasting_setup(&game);
-	// init_window(&game);
+	mlx_loop(game.mlx.mlx_ptr);
 	return (0);
 }
