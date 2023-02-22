@@ -40,5 +40,6 @@ static void	draw_background(t_game *game)
 int	render(t_game *game)
 {
 	draw_background(game);
+	
 	return (0);
 }
