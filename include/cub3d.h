@@ -97,9 +97,9 @@ struct s_game {
 	t_scene_desc	*scene;
 	t_img			*screen;
 	t_vector		plane;
-	t_vector		direction;
+	t_vector		dir;
 	t_vector		player;
-	t_raycaster		raycaster;
+	t_raycaster		rc;
 };
 
 enum e_type_id {

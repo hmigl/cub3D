@@ -8,15 +8,13 @@ static void	calc_next_step_and_cast_rays(t_game *game)
 
 static void	set_raycaster_data(t_game *game, int x)
 {
-	game->raycaster.camera.x = 2 * x / (double) WIN_WIDTH - 1;
-	game->raycaster.ray_dir.x = game->direction.x
-		+ game->plane.x * game->raycaster.camera.x;
-	game->raycaster.ray_dir.y = game->direction.y
-		+ game->plane.y * game->raycaster.camera.x;
-	game->raycaster.map.x_i = (int) game->player.x;
-	game->raycaster.map.y_i = (int) game->player.y;
-	game->raycaster.delta_dist.x = fabs(1 / game->raycaster.ray_dir.x);
-	game->raycaster.delta_dist.y = fabs(1 / game->raycaster.ray_dir.y);
+	game->rc.camera.x = 2 * x / (double) WIN_WIDTH - 1;
+	game->rc.ray_dir.x = game->dir.x + game->plane.x * game->rc.camera.x;
+	game->rc.ray_dir.y = game->dir.y + game->plane.y * game->rc.camera.x;
+	game->rc.map.x_i = (int) game->player.x;
+	game->rc.map.y_i = (int) game->player.y;
+	game->rc.delta_dist.x = fabs(1 / game->rc.ray_dir.x);
+	game->rc.delta_dist.y = fabs(1 / game->rc.ray_dir.y);
 }
 
 void	raycast(t_game *game)

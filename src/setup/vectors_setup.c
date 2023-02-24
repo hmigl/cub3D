@@ -8,8 +8,8 @@ static void	setup_camera_plane(t_game *game)
 
 static void	setup_facing_direction(t_game *game)
 {
-	game->direction.x = -1;
-	game->direction.y = 0;
+	game->dir.x = -1;
+	game->dir.y = 0;
 }
 
 void	vectors_setup(t_game *game)
