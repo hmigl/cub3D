@@ -2,6 +2,8 @@
 
 static void	pre_raycasting_setup(t_game *game)
 {
+	game->player.x = game->scene->map.x_start_pos;
+	game->player.y = game->scene->map.y_start_pos;
 	vectors_setup(game);
 	mlx_setup(game);
 }

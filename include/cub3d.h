@@ -80,6 +80,7 @@ struct s_game {
 	t_img			*screen;
 	t_vector		plane;
 	t_vector		direction;
+	t_vector		player;
 };
 
 enum e_type_id {
