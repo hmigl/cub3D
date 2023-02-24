@@ -86,6 +86,7 @@ struct s_raycaster {
 	t_vector	ray_dir;
 	t_vector	camera;
 	t_vector	map;
+	t_vector	step;
 };
 
 typedef struct s_game		t_game;
@@ -138,6 +139,8 @@ void	vectors_setup(t_game *game);
 // render
 int		render(t_game *game);
 void	raycast(t_game *game);
+// raycasting
+void	calc_next_step(t_game *game);
 
 // other
 int		exit_game_gracefully(t_game *game);

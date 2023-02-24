@@ -1,5 +1,11 @@
 #include "cub3d.h"
 
+static void	calc_next_step_and_cast_rays(t_game *game)
+{
+	calc_next_step(game);
+	// cast_rays_using_dda(game);
+}
+
 static void	set_raycaster_data(t_game *game, int x)
 {
 	game->raycaster.camera.x = 2 * x / (double) WIN_WIDTH - 1;
