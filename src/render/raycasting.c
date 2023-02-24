@@ -7,8 +7,8 @@ static void	set_raycaster_data(t_game *game, int x)
 		+ game->plane.x * game->raycaster.camera.x;
 	game->raycaster.ray_dir.y = game->direction.y
 		+ game->plane.y * game->raycaster.camera.x;
-	game->raycaster.map_x = (int) game->player.x;
-	game->raycaster.map_y = (int) game->player.y;
+	game->raycaster.map.x_i = (int) game->player.x;
+	game->raycaster.map.y_i = (int) game->player.y;
 	game->raycaster.delta_dist.x = fabs(1 / game->raycaster.ray_dir.x);
 	game->raycaster.delta_dist.y = fabs(1 / game->raycaster.ray_dir.y);
 }

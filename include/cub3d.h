@@ -69,8 +69,14 @@ struct s_mlx {
 
 typedef struct s_vector		t_vector;
 struct s_vector {
-	double	x;
-	double	y;
+	union {
+		double	x;
+		int		x_i;
+	};
+	union {
+		double	y;
+		int		y_i;
+	};
 };
 
 typedef struct s_raycaster	t_raycaster;
@@ -79,8 +85,7 @@ struct s_raycaster {
 	t_vector	side_dist;
 	t_vector	ray_dir;
 	t_vector	camera;
-	int			map_x;
-	int			map_y;
+	t_vector	map;
 };
 
 typedef struct s_game		t_game;
