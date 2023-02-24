@@ -73,6 +73,13 @@ struct s_vector {
 	double	y;
 };
 
+typedef struct s_raycaster	t_raycaster;
+struct s_raycaster {
+	t_vector	delta_dist;
+	t_vector	side_dist;
+	t_vector	ray_dir;
+};
+
 typedef struct s_game		t_game;
 struct s_game {
 	t_mlx			mlx;
@@ -81,6 +88,7 @@ struct s_game {
 	t_vector		plane;
 	t_vector		direction;
 	t_vector		player;
+	t_raycaster		raycaster;
 };
 
 enum e_type_id {
