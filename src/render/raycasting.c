@@ -3,7 +3,7 @@
 static void	calc_next_step_and_cast_rays(t_game *game)
 {
 	calc_next_step(game);
-	// cast_rays_using_dda(game);
+	cast_rays_using_dda(game);
 }
 
 static void	set_raycaster_data(t_game *game, int x)
@@ -27,5 +27,6 @@ void	raycast(t_game *game)
 	while (++x < WIN_WIDTH)
 	{
 		set_raycaster_data(game, x);
+		calc_next_step_and_cast_rays(game);
 	}
 }
