@@ -78,6 +78,9 @@ struct s_raycaster {
 	t_vector	delta_dist;
 	t_vector	side_dist;
 	t_vector	ray_dir;
+	t_vector	camera;
+	int			map_x;
+	int			map_y;
 };
 
 typedef struct s_game		t_game;
@@ -129,6 +132,7 @@ void	vectors_setup(t_game *game);
 
 // render
 int		render(t_game *game);
+void	raycast(t_game *game);
 
 // other
 int		exit_game_gracefully(t_game *game);

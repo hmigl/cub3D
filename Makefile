@@ -26,7 +26,7 @@ SRC += parse_scene_desc.c extract_scene_elements.c extract_texture_path.c \
 SRC += mlx_setup.c vectors_setup.c
 
 # RAYCASTING
-SRC += render.c
+SRC += render.c raycasting.c
 
 OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 DEPS = $(OBJS:.o=.d)
