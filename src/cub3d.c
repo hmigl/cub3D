@@ -2,7 +2,7 @@
 
 static void	pre_raycasting_setup(t_game *game)
 {
-	// (pre) raycasting stuff comes before 'mlx_setup()'!
+	vectors_setup(game);
 	mlx_setup(game);
 }
 

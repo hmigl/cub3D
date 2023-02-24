@@ -33,13 +33,12 @@ static void	draw_background(t_game *game)
 			&game->screen->endian);
 	draw_ceiling_and_floor(game,
 		game->scene->ceiling_color, game->scene->floor_color);
-	mlx_put_image_to_window(game->mlx.mlx_ptr,
-		game->mlx.win_ptr, game->screen->img, 0, 0);
 }
 
 int	render(t_game *game)
 {
 	draw_background(game);
-	
+	mlx_put_image_to_window(game->mlx.mlx_ptr,
+		game->mlx.win_ptr, game->screen->img, 0, 0);
 	return (0);
 }

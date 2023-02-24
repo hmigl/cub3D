@@ -23,7 +23,7 @@ SRC += parse_scene_desc.c extract_scene_elements.c extract_texture_path.c \
        map_as_list_validation.c map_as_2d_array_validation.c
 
 # SETUP
-SRC += mlx_setup.c
+SRC += mlx_setup.c vectors_setup.c
 
 # RAYCASTING
 SRC += render.c

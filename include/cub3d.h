@@ -67,11 +67,19 @@ struct s_mlx {
 	void	*win_ptr;
 };
 
+typedef struct s_vector		t_vector;
+struct s_vector {
+	double	x;
+	double	y;
+};
+
 typedef struct s_game		t_game;
 struct s_game {
 	t_mlx			mlx;
 	t_scene_desc	*scene;
 	t_img			*screen;
+	t_vector		plane;
+	t_vector		direction;
 };
 
 enum e_type_id {
@@ -108,6 +116,7 @@ int		is_map_surrounded_by_walls(t_scene_map *map);
 
 // setup
 void	mlx_setup(t_game *game);
+void	vectors_setup(t_game *game);
 
 // render
 int		render(t_game *game);
