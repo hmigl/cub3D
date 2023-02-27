@@ -24,8 +24,6 @@ static void	draw_ceiling_and_floor(t_game *game, int ceiling_color,
 
 static void	draw_background(t_game *game)
 {
-	if (game->screen->img)
-		mlx_destroy_image(game->mlx.mlx_ptr, game->screen->img);
 	game->screen->img = mlx_new_image(game->mlx.mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
 	game->screen->addr = (int *) mlx_get_data_addr(game->screen->img,
 			&game->screen->bits_per_pixel,
@@ -41,5 +39,6 @@ int	render(t_game *game)
 	raycast(game);
 	mlx_put_image_to_window(game->mlx.mlx_ptr,
 		game->mlx.win_ptr, game->screen->img, 0, 0);
+	mlx_destroy_image(game->mlx.mlx_ptr, game->screen->img);
 	return (0);
 }
