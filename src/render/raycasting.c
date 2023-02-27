@@ -1,5 +1,22 @@
 #include "cub3d.h"
 
+static void	set_wall_height(t_game *game)
+{
+	if (game->rc.side == 0)
+		game->rc.perp_wall_dist = (game->rc.map.x_i - game->player.x
+				+ (1 - game->rc.step.x_i) / 2) / game->rc.ray_dir.x;
+	else
+		game->rc.perp_wall_dist = (game->rc.map.y_i - game->player.y
+				+ (1 - game->rc.step.y_i) / 2) / game->rc.ray_dir.y;
+	game->rc.line_height = (int) (WIN_HEIGHT / game->rc.perp_wall_dist);
+	game->rc.draw_start = -game->rc.line_height / 2 + WIN_HEIGHT / 2;
+	if (game->rc.draw_start < 0)
+		game->rc.draw_start = 0;
+	game->rc.draw_end = game->rc.line_height / 2 + WIN_HEIGHT / 2;
+	if (game->rc.draw_end >= WIN_HEIGHT)
+		game->rc.draw_end = WIN_HEIGHT - 1;
+}
+
 static void	calc_next_step_and_cast_rays(t_game *game)
 {
 	calc_next_step(game);
@@ -26,5 +43,6 @@ void	raycast(t_game *game)
 	{
 		set_raycaster_data(game, x);
 		calc_next_step_and_cast_rays(game);
+		set_wall_height(game);
 	}
 }

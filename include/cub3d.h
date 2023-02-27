@@ -89,6 +89,10 @@ struct s_raycaster {
 	t_vector	step;
 	int			hit;
 	int			side;
+	double		perp_wall_dist;
+	int			line_height;
+	int			draw_start;
+	int			draw_end;
 };
 
 typedef struct s_game		t_game;
