@@ -11,16 +11,10 @@ static void	set_wall_height(t_game *game)
 	game->rc.line_height = (int)(WIN_HEIGHT / game->rc.perp_wall_dist);
 	game->rc.draw_start = -game->rc.line_height / 2 + WIN_HEIGHT / 2;
 	if (game->rc.draw_start < 0)
-	game->rc.draw_start = 0;
+		game->rc.draw_start = 0;
 	game->rc.draw_end = game->rc.line_height / 2 + WIN_HEIGHT / 2;
 	if (game->rc.draw_end >= WIN_HEIGHT)
-	game->rc.draw_end = WIN_HEIGHT - 1;
-}
-
-static void	calc_next_step_and_cast_rays(t_game *game)
-{
-	calc_next_step(game);
-	cast_rays_using_dda(game);
+		game->rc.draw_end = WIN_HEIGHT - 1;
 }
 
 static void	set_raycaster_data(t_game *game, int x)
@@ -42,7 +36,8 @@ void	raycast(t_game *game)
 	while (++x < WIN_WIDTH)
 	{
 		set_raycaster_data(game, x);
-		calc_next_step_and_cast_rays(game);
+		calc_next_step(game);
+		cast_rays_using_dda(game);
 		set_wall_height(game);
 	}
 }
