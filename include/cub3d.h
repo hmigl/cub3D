@@ -59,6 +59,8 @@ struct s_img {
 	int		bits_per_pixel;
 	int		size_line;
 	int		endian;
+	int		width;
+	int		height;
 };
 
 typedef struct s_mlx		t_mlx;
@@ -87,9 +89,14 @@ struct s_raycaster {
 	t_vector	camera;
 	t_vector	map;
 	t_vector	step;
+	t_vector	wall;
+	t_vector	tex;
+	t_img		texture;
+	double		perp_wall_dist;
+	double		tex_step;
+	double		tex_pos;
 	int			hit;
 	int			side;
-	double		perp_wall_dist;
 	int			line_height;
 	int			draw_start;
 	int			draw_end;
