@@ -152,6 +152,7 @@ int		is_map_surrounded_by_walls(t_scene_map *map);
 // setup
 void	mlx_setup(t_game *game);
 void	vectors_setup(t_game *game);
+void	textures_setup(t_game *game);
 
 // render
 int		render(t_game *game);

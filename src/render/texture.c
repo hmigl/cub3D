@@ -11,24 +11,6 @@ static void	set_texture(t_game *game)
 		game->rc.texture = game->so_texture;
 }
 
-static void	load_texture(t_game *game, t_img *texture, char *path)
-{
-	texture->img = mlx_xpm_file_to_image(game->mlx.mlx_ptr, path,
-			&texture->width, &texture->height);
-	texture->addr = mlx_get_data_addr(texture->img,
-			&texture->bits_per_pixel, \
-			&texture->size_line, \
-			&texture->endian);
-}
-
-static void	init_texture(t_game *game)
-{
-	load_texture(game, game->no_texture, game->scene->no_texture);
-	load_texture(game, game->so_texture, game->scene->so_texture);
-	load_texture(game, game->we_texture, game->scene->we_texture);
-	load_texture(game, game->ea_texture, game->scene->ea_texture);
-}
-
 void	insert_texture(t_game *game, int x)
 {
 	if (game->rc.side == 0)
@@ -38,7 +20,6 @@ void	insert_texture(t_game *game, int x)
 		game->rc.wall.x = game->player.x + game->rc.perp_wall_dist
 			* game->rc.ray_dir.x;
 	game->rc.wall.x -= (int)game->rc.wall.x;
-	init_texture(game);
 	set_texture(game);
 	game->rc.tex.x = (int)(game->rc.wall.x * (double)game->rc.texture->width);
 	if (game->rc.side == 0 && game->rc.ray_dir.x > 0)
