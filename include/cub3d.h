@@ -91,7 +91,7 @@ struct s_raycaster {
 	t_vector	step;
 	t_vector	wall;
 	t_vector	tex;
-	t_img		texture;
+	t_img		*texture;
 	double		perp_wall_dist;
 	double		tex_step;
 	double		tex_pos;
@@ -107,6 +107,10 @@ struct s_game {
 	t_mlx			mlx;
 	t_scene_desc	*scene;
 	t_img			*screen;
+	t_img			*no_texture;
+	t_img			*so_texture;
+	t_img			*we_texture;
+	t_img			*ea_texture;
 	t_vector		plane;
 	t_vector		dir;
 	t_vector		player;
