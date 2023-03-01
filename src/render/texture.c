@@ -13,18 +13,21 @@ static void	set_texture(t_game *game)
 
 static void	load_texture(t_game *game, t_img *texture, char *path)
 {
-	texture->img = mlx_xpm_file_to_image(game->mlx.mlx_ptr, path, &texture->width, &texture->height);
-	texture->addr = mlx_get_data_addr(texture->img, &texture->bits_per_pixel, &texture->size_line, &texture->endian);
+	texture->img = mlx_xpm_file_to_image(game->mlx.mlx_ptr, path,
+			&texture->width, &texture->height);
+	texture->addr = mlx_get_data_addr(texture->img,
+			&texture->bits_per_pixel, \
+			&texture->size_line, \
+			&texture->endian);
 }
 
-void	init_texture(t_game *game)
+static void	init_texture(t_game *game)
 {
 	load_texture(game, game->no_texture, game->scene->no_texture);
 	load_texture(game, game->so_texture, game->scene->so_texture);
 	load_texture(game, game->we_texture, game->scene->we_texture);
 	load_texture(game, game->ea_texture, game->scene->ea_texture);
 }
-
 
 void	insert_texture(t_game *game, int x)
 {
