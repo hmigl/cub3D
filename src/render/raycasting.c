@@ -3,12 +3,10 @@
 static void	set_wall_height(t_game *game)
 {
 	if (game->rc.side == 0)
-		game->rc.perp_wall_dist = (game->rc.map.x_i - game->player.x
-				+ (1 - game->rc.step.x_i) / 2) / game->rc.ray_dir.x;
+		game->rc.perp_wall_dist = (game->rc.side_dist.x - game->rc.delta_dist.x);
 	else
-		game->rc.perp_wall_dist = (game->rc.map.y_i - game->player.y
-				+ (1 - game->rc.step.y_i) / 2) / game->rc.ray_dir.y;
-	game->rc.line_height = (int)(WIN_HEIGHT / game->rc.perp_wall_dist);
+		game->rc.perp_wall_dist = (game->rc.side_dist.y - game->rc.delta_dist.y);
+	game->rc.line_height = (int) (WIN_HEIGHT / game->rc.perp_wall_dist);
 	game->rc.draw_start = -game->rc.line_height / 2 + WIN_HEIGHT / 2;
 	if (game->rc.draw_start < 0)
 		game->rc.draw_start = 0;
