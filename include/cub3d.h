@@ -153,10 +153,15 @@ int		is_map_surrounded_by_walls(t_scene_map *map);
 void	mlx_setup(t_game *game);
 void	vectors_setup(t_game *game);
 void	textures_setup(t_game *game);
+void	position_setup(t_game *game, double radians);
+double  get_radians(t_game *game);
 
 // render
 int		render(t_game *game);
 void	raycast(t_game *game);
+void	insert_texture(t_game *game, int x);
+void	texture_loop(t_game *game, int x);
+
 // raycasting
 void	calc_next_step(t_game *game);
 void	cast_rays_using_dda(t_game *game);

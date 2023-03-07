@@ -6,6 +6,7 @@ static void	pre_raycasting_setup(t_game *game)
 	game->player.y = game->scene->map.y_start_pos;
 	vectors_setup(game);
 	mlx_setup(game);
+	position_setup(game, get_radians(game));
 	textures_setup(game);
 }
 

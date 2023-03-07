@@ -29,5 +29,5 @@ void	insert_texture(t_game *game, int x)
 	game->rc.tex_step = 1.0 * game->rc.texture->height / game->rc.line_height;
 	game->rc.tex_pos = (game->rc.draw_start - WIN_HEIGHT
 			/ 2 + game->rc.line_height / 2) * game->rc.tex_step;
-	//texture_loop(game, x);
+	texture_loop(game, x);
 }

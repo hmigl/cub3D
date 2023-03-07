@@ -20,7 +20,8 @@ SRC += cub3d.c release_memory.c error_handling.c \
 # PARSER
 SRC += parse_scene_desc.c extract_scene_elements.c extract_texture_path.c \
        extract_rgb_color.c extract_scene_map.c trim_line.c \
-       map_as_list_validation.c map_as_2d_array_validation.c
+       map_as_list_validation.c map_as_2d_array_validation.c position_setup.c \
+	   texture_utils.c 
 
 # SETUP
 SRC += mlx_setup.c vectors_setup.c textures_setup.c
