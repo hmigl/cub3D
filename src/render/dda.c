@@ -30,25 +30,25 @@ void	calc_next_step(t_game *game)
 	if (game->rc.ray_dir.x < 0)
 	{
 		game->rc.step.x_i = -1;
-		game->rc.side_dist.x = (game->player.x - game->rc.map.x_i)
+		game->rc.side_dist.x = (game->player.pos.x - game->rc.map.x_i)
 			* game->rc.delta_dist.x;
 	}
 	else
 	{
 		game->rc.step.x_i = 1;
-		game->rc.side_dist.x = (game->rc.map.x_i + 1.0 - game->player.x)
+		game->rc.side_dist.x = (game->rc.map.x_i + 1.0 - game->player.pos.x)
 			* game->rc.delta_dist.x;
 	}
 	if (game->rc.ray_dir.y < 0)
 	{
 		game->rc.step.y_i = -1;
-		game->rc.side_dist.y = (game->player.y - game->rc.map.y_i)
+		game->rc.side_dist.y = (game->player.pos.y - game->rc.map.y_i)
 			* game->rc.delta_dist.y;
 	}
 	else
 	{
 		game->rc.step.y_i = 1;
-		game->rc.side_dist.y = (game->rc.map.y_i + 1.0 - game->player.y)
+		game->rc.side_dist.y = (game->rc.map.y_i + 1.0 - game->player.pos.y)
 			* game->rc.delta_dist.y;
 	}
 }

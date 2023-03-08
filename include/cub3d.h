@@ -103,6 +103,14 @@ struct s_raycaster {
 	int			draw_end;
 };
 
+typedef struct s_player		t_player;
+struct s_player {
+	t_vector	pos;
+	t_vector	plane;
+	t_vector	dir;
+	double		move_speed;
+};
+
 typedef struct s_game		t_game;
 struct s_game {
 	t_mlx			mlx;
@@ -112,9 +120,7 @@ struct s_game {
 	t_img			*so_texture;
 	t_img			*we_texture;
 	t_img			*ea_texture;
-	t_vector		plane;
-	t_vector		dir;
-	t_vector		player;
+	t_player		player;
 	t_raycaster		rc;
 };
 

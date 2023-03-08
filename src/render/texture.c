@@ -14,10 +14,10 @@ static void	set_texture(t_game *game)
 void	insert_texture(t_game *game, int x)
 {
 	if (game->rc.side == 0)
-		game->rc.wall.x = game->player.y + game->rc.perp_wall_dist
+		game->rc.wall.x = game->player.pos.y + game->rc.perp_wall_dist
 			* game->rc.ray_dir.y;
 	else
-		game->rc.wall.x = game->player.x + game->rc.perp_wall_dist
+		game->rc.wall.x = game->player.pos.x + game->rc.perp_wall_dist
 			* game->rc.ray_dir.x;
 	game->rc.wall.x -= (int)game->rc.wall.x;
 	set_texture(game);
