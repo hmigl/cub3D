@@ -14,8 +14,8 @@ LIBFT := $(LIBFTDIR)/libft.a
 vpath %.c $(shell find src -type d)
 
 # GAME
-SRC += cub3d.c release_memory.c error_handling.c \
-       exit_game_gracefully.c movement.c
+SRC += cub3d.c release_memory.c error_handling.c exit_game_gracefully.c \
+       movement.c fov_rotation.c
 
 # PARSER
 SRC += parse_scene_desc.c extract_scene_elements.c extract_texture_path.c \

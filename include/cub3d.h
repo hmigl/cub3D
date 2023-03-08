@@ -109,6 +109,7 @@ struct s_player {
 	t_vector	plane;
 	t_vector	dir;
 	double		move_speed;
+	double		rotation_speed;
 };
 
 typedef struct s_game		t_game;
@@ -175,6 +176,7 @@ void	cast_rays_using_dda(t_game *game);
 
 // movement
 void	move_player(int keycode, t_game *game);
+void	rotate_fov(int keycode, t_game *game);
 
 // other
 int		exit_game_gracefully(t_game *game);

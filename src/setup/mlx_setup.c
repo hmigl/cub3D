@@ -7,6 +7,8 @@ static int	keypress_management(int keycode, t_game *game)
 	if (keycode == XK_w || keycode == XK_s
 		|| keycode == XK_a || keycode == XK_d)
 		move_player(keycode, game);
+	if (keycode == XK_Left || keycode == XK_Right)
+		rotate_fov(keycode, game);
 	return (0);
 }
 
