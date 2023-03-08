@@ -4,6 +4,9 @@ static int	keypress_management(int keycode, t_game *game)
 {
 	if (keycode == XK_Escape)
 		exit_game_gracefully(game);
+	if (keycode == XK_w || keycode == XK_s
+		|| keycode == XK_a || keycode == XK_d)
+		move_player(keycode, game);
 	return (0);
 }
 

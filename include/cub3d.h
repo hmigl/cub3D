@@ -173,6 +173,9 @@ void	texture_loop(t_game *game, int x);
 void	calc_next_step(t_game *game);
 void	cast_rays_using_dda(t_game *game);
 
+// movement
+void	move_player(int keycode, t_game *game);
+
 // other
 int		exit_game_gracefully(t_game *game);
 

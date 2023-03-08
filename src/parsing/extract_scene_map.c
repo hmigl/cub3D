@@ -16,6 +16,7 @@ static void	set_player_starting_info(t_scene_map *map)
 				map->x_start_pos = i;
 				map->y_start_pos = j;
 				map->player_dir = map->map_as_2d_array[i][j];
+				map->map_as_2d_array[i][j] = '0';
 				return ;
 			}
 		}
