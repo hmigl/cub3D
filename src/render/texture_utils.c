@@ -11,7 +11,7 @@ int	get_color(t_img *texture, int x, int y)
 	return (*(unsigned int *)dst);
 }
 
-static void put_pixel(t_game *game, int x, int y, int color)
+static void	put_pixel(t_game *game, int x, int y, int color)
 {
 	char	*dst;
 
