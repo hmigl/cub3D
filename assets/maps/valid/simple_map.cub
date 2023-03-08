@@ -1,10 +1,10 @@
-NO ./assets/textures/no.xpm
-SO ./assets/textures/so.xpm
-EA ./assets/textures/ea.xpm
-WE ./assets/textures/we.xpm
+NO ./assets/textures/blue_block.xpm
+SO ./assets/textures/red_block.xpm
+EA ./assets/textures/purple_block.xpm
+WE ./assets/textures/brick_block.xpm
 
-F 220,100,0
-C 225,30,0
+F 111,110,111
+C 57,56,57
 
         1111111111111111111111111
         1000000000110000000000001
