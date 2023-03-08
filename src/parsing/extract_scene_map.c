@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-static void	set_player_starting_point(t_scene_map *map)
+static void	set_player_starting_info(t_scene_map *map)
 {
 	int	i;
 	int	j;
@@ -15,6 +15,7 @@ static void	set_player_starting_point(t_scene_map *map)
 			{
 				map->x_start_pos = i;
 				map->y_start_pos = j;
+				map->player_dir = map->map_as_2d_array[i][j];
 				return ;
 			}
 		}
@@ -78,7 +79,7 @@ void	extract_scene_map(t_scene_desc *scene)
 		display_error_msg_and_exit(INVALID_MAP);
 	}
 	reconstruct_map_as_2d_array(&(scene->map));
-	set_player_starting_point(&(scene->map));
+	set_player_starting_info(&(scene->map));
 	if (!is_map_surrounded_by_walls(&(scene->map)))
 	{
 		scene_clean_up(scene);

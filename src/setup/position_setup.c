@@ -1,26 +1,5 @@
 #include "cub3d.h"
 
-static char	get_direction(t_scene_map *map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (map->map_as_2d_array[i])
-	{
-		j = 0;
-		while (map->map_as_2d_array[i][j])
-		{
-			if (ft_strchr("NSEW", map->map_as_2d_array[i][j]))
-				return (map->map_as_2d_array[i][j]);
-			j++;
-		}
-		i++;
-	}
-	return ('N');
-}
-
 void	position_setup(t_game *game, double radians)
 {
 	t_vector	direction;
@@ -40,17 +19,13 @@ void	position_setup(t_game *game, double radians)
 
 double	get_radians(t_game *game)
 {
-	char	direction;
-
-	direction = get_direction(&game->scene->map);
-	if (direction == 'N')
+	if (game->scene->map.player_dir == 'N')
 		return (0);
-	else if (direction == 'S')
+	else if (game->scene->map.player_dir == 'S')
 		return (M_PI);
-	else if (direction == 'E')
+	else if (game->scene->map.player_dir == 'E')
 		return (M_PI / 2);
-	else if (direction == 'W')
+	else if (game->scene->map.player_dir == 'W')
 		return (M_PI * 1.5);
 	return (0);
 }
-

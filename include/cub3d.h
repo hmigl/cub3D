@@ -37,6 +37,7 @@ struct s_scene_map {
 	char	**map_as_2d_array;
 	int		x_start_pos;
 	int		y_start_pos;
+	char	player_dir;
 };
 
 typedef struct s_scene_desc	t_scene_desc;
@@ -154,7 +155,7 @@ void	mlx_setup(t_game *game);
 void	vectors_setup(t_game *game);
 void	textures_setup(t_game *game);
 void	position_setup(t_game *game, double radians);
-double  get_radians(t_game *game);
+double	get_radians(t_game *game);
 
 // render
 int		render(t_game *game);
