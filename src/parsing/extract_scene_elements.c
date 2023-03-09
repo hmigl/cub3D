@@ -11,7 +11,7 @@ static enum e_type_id	get_type_id(const char *element)
 		return (COLOR);
 }
 
-static int	extract_element(t_scene_desc *scene, const char *line)
+static int	extract_element(t_scene_desc *scene, char *line)
 {
 	char			scene_element[3];
 	enum e_type_id	type_identifier;
@@ -55,6 +55,7 @@ void	extract_scene_elements(t_scene_desc *scene)
 	{
 		free(line);
 		scene_clean_up(scene);
+		fseek_end(scene->fd);
 		display_error_msg_and_exit(MISSING_ELEMENT);
 	}
 	scene->map.first_line = line;
