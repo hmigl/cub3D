@@ -3,61 +3,69 @@
 static void	move_right(t_game *game)
 {
 	char	**map;
-	int		next_x;
-	int		next_y;
+	double	move_x;
+	double	move_y;
 
 	map = game->scene->map.map_as_2d_array;
-	next_x = game->player.pos.x + game->player.dir.y * game->player.move_speed;
-	next_y = game->player.pos.y - game->player.dir.x * game->player.move_speed;
-	if (map[next_x][(int)game->player.pos.y] == '0')
-		game->player.pos.x += game->player.dir.y * game->player.move_speed;
-	if (map[(int)game->player.pos.x][next_y] == '0')
-		game->player.pos.y -= game->player.dir.x * game->player.move_speed;
+	move_x = game->player.dir.y * game->player.move_speed;
+	move_y = -game->player.dir.x * game->player.move_speed;
+	if (map[(int)(game->player.pos.x + move_x + copysign(0.5, move_x))]
+		[(int)game->player.pos.y] == '0')
+		game->player.pos.x += move_x;
+	if (map[(int)game->player.pos.x]
+		[(int)(game->player.pos.y + move_y + copysign(0.5, move_y))] == '0')
+		game->player.pos.y += move_y;
 }
 
 static void	move_left(t_game *game)
 {
 	char	**map;
-	int		next_x;
-	int		next_y;
+	double	move_x;
+	double	move_y;
 
 	map = game->scene->map.map_as_2d_array;
-	next_x = game->player.pos.x - game->player.dir.y * game->player.move_speed;
-	next_y = game->player.pos.y + game->player.dir.x * game->player.move_speed;
-	if (map[next_x][(int)game->player.pos.y] == '0')
-		game->player.pos.x -= game->player.dir.y * game->player.move_speed;
-	if (map[(int)game->player.pos.x][next_y] == '0')
-		game->player.pos.y += game->player.dir.x * game->player.move_speed;
+	move_x = -game->player.dir.y * game->player.move_speed;
+	move_y = game->player.dir.x * game->player.move_speed;
+	if (map[(int)(game->player.pos.x + move_x + copysign(0.5, move_x))]
+		[(int)game->player.pos.y] == '0')
+		game->player.pos.x += move_x;
+	if (map[(int)game->player.pos.x]
+		[(int)(game->player.pos.y + move_y + copysign(0.5, move_y))] == '0')
+		game->player.pos.y += move_y;
 }
 
 static void	move_backward(t_game *game)
 {
 	char	**map;
-	int		next_x;
-	int		next_y;
+	double	move_x;
+	double	move_y;
 
 	map = game->scene->map.map_as_2d_array;
-	next_x = game->player.pos.x - game->player.dir.x * game->player.move_speed;
-	next_y = game->player.pos.y - game->player.dir.y * game->player.move_speed;
-	if (map[next_x][(int)game->player.pos.y] == '0')
-		game->player.pos.x -= game->player.dir.x * game->player.move_speed;
-	if (map[(int)game->player.pos.x][next_y] == '0')
-		game->player.pos.y -= game->player.dir.y * game->player.move_speed;
+	move_x = -game->player.dir.x * game->player.move_speed;
+	move_y = -game->player.dir.y * game->player.move_speed;
+	if (map[(int)(game->player.pos.x + move_x + copysign(0.5, move_x))]
+		[(int)game->player.pos.y] == '0')
+		game->player.pos.x += move_x;
+	if (map[(int)game->player.pos.x]
+		[(int)(game->player.pos.y + move_y + copysign(0.5, move_y))] == '0')
+		game->player.pos.y += move_y;
 }
 
 static void	move_forward(t_game *game)
 {
 	char	**map;
-	int		next_x;
-	int		next_y;
+	double	move_x;
+	double	move_y;
 
 	map = game->scene->map.map_as_2d_array;
-	next_x = game->player.pos.x + game->player.dir.x * game->player.move_speed;
-	next_y = game->player.pos.y + game->player.dir.y * game->player.move_speed;
-	if (map[next_x][(int)game->player.pos.y] == '0')
-		game->player.pos.x += game->player.dir.x * game->player.move_speed;
-	if (map[(int)game->player.pos.x][next_y] == '0')
-		game->player.pos.y += game->player.dir.y * game->player.move_speed;
+	move_x = game->player.dir.x * game->player.move_speed;
+	move_y = game->player.dir.y * game->player.move_speed;
+	if (map[(int)(game->player.pos.x + move_x + copysign(0.5, move_x))]
+		[(int)game->player.pos.y] == '0')
+		game->player.pos.x += move_x;
+	if (map[(int)game->player.pos.x]
+		[(int)(game->player.pos.y + move_y + copysign(0.5, move_y))] == '0')
+		game->player.pos.y += move_y;
 }
 
 void	move_player(int keycode, t_game *game)
