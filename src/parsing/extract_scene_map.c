@@ -61,7 +61,8 @@ static void	save_map_as_list(t_scene_desc *scene)
 	char	*line;
 	t_list	*rows_as_list;
 
-	line = scene->map.first_line;
+	line = ft_strdup(scene->map.first_line);
+	free(scene->map.first_line);
 	rows_as_list = NULL;
 	while (line != NULL)
 	{

@@ -30,6 +30,7 @@
 # define MALFORMED_ELEMENT "malformed scene element(s)"
 # define INVALID_MAP "invalid map"
 # define MLX_ERROR "mlx failed"
+# define BAD_FILE_DESCRIPTOR "cannot open file"
 
 # define WIN_HEIGHT 430
 # define WIN_WIDTH 700

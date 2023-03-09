@@ -35,34 +35,35 @@ static void	count_commas(const char *str)
 		display_error_msg_and_exit(MALFORMED_ELEMENT);
 }
 
-static void	check_element_redundancy(const char *line)
+static int	is_element_redundant(char *line)
 {
 	int			floor_or_ceiling;
 	static int	extracted_colors[2] = {0};
 
 	floor_or_ceiling = line[0] == 'C';
 	extracted_colors[floor_or_ceiling]++;
-	if (extracted_colors[floor_or_ceiling] > 1)
-		display_error_msg_and_exit(REDUNDANT_ELEMENT);
+	return (extracted_colors[floor_or_ceiling] > 1);
 }
 
-void	extract_rgb_color(t_scene_desc *scene, const char *line)
+void	extract_rgb_color(t_scene_desc *scene, char *line)
 {
 	char	**rgb_ranges;
 	int		info_index;
 	int		rgb_value;
 
+	info_index = 2;
 	if (line[2] == ' ')
 		info_index = 3;
-	else
-		info_index = 2;
-	check_element_redundancy(line);
+	if (is_element_redundant(line))
+	{
+		free(line);
+		scene_clean_up(scene);
+		display_error_msg_and_exit(REDUNDANT_ELEMENT);
+	}
 	count_commas(&(line[info_index]));
 	rgb_ranges = ft_split(&(line[info_index]), ',');
 	check_rgb_colors_range(rgb_ranges);
-	rgb_value = convert_rgb(
-			ft_atoi(rgb_ranges[0]),
-			ft_atoi(rgb_ranges[1]),
+	rgb_value = convert_rgb(ft_atoi(rgb_ranges[0]), ft_atoi(rgb_ranges[1]),
 			ft_atoi(rgb_ranges[2]));
 	ft_free_matrix(rgb_ranges);
 	if (line[0] == 'F')
