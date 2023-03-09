@@ -20,7 +20,7 @@ void	cast_rays_using_dda(t_game *game)
 			game->rc.side = 1;
 		}
 		aux = game->scene->map.map_as_2d_array;
-		if (aux[game->rc.map.x_i][game->rc.map.y_i] == '1')
+		if (aux[game->rc.map.x_i][game->rc.map.y_i] == WALL)
 			game->rc.hit = 1;
 	}
 }

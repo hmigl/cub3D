@@ -16,6 +16,13 @@
 # define VALID_CHARS "01 NSEW"
 # define PLAYER_CHARS "NSEW"
 
+# define FLOOR '0'
+# define WALL '1'
+
+# define WALL_COLLISION_THRESHOLD 0.5
+# define MOVE_SPEED 0.1
+# define ROTATION_SPEED 0.048
+
 # define WRONG_USAGE "usage: ./cub3D FILE"
 # define INVALID_EXT "file must end with '.cub' extension"
 # define MISSING_ELEMENT "scene has missing elements"

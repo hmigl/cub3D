@@ -2,10 +2,8 @@
 
 static void	pre_raycasting_setup(t_game *game)
 {
-	game->player.pos.x = game->scene->map.x_start_pos + 0.5;
-	game->player.pos.y = game->scene->map.y_start_pos + 0.5;
-	game->player.move_speed = 0.1;
-	game->player.rotation_speed = 0.035;
+	game->player.move_speed = MOVE_SPEED;
+	game->player.rotation_speed = ROTATION_SPEED;
 	vectors_setup(game);
 	mlx_setup(game);
 	position_setup(game, get_radians(game));
@@ -19,7 +17,8 @@ int	main(int argc, char *argv[])
 
 	if (argc != 2)
 		display_error_msg_and_exit(WRONG_USAGE);
-	ft_bzero(&scene, sizeof(t_scene_desc));
+	scene = (struct s_scene_desc){0};
+	game = (struct s_game){0};
 	parse_scene_desc(&scene, argv[1]);
 	game.scene = &scene;
 	pre_raycasting_setup(&game);
