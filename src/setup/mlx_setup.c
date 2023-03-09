@@ -29,9 +29,13 @@ void	mlx_setup(t_game *game)
 		game_clean_up(game);
 		display_error_msg_and_exit(MLX_ERROR);
 	}
-	game->screen = malloc(sizeof(t_img));
-	game->screen->img = NULL;
+	game->screen.img = NULL;
 	game->mlx.win_ptr
 		= mlx_new_window(game->mlx.mlx_ptr, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE);
+	game->screen.img = mlx_new_image(game->mlx.mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
+	game->screen.addr = (int *) mlx_get_data_addr(game->screen.img,
+			&game->screen.bits_per_pixel,
+			&game->screen.size_line,
+			&game->screen.endian);
 	set_hooks(game);
 }

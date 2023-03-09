@@ -41,18 +41,21 @@ static void	reconstruct_map_as_2d_array(t_scene_map *map)
 	int		i;
 	int		diff;
 	char	*row;
+	t_list	*aux;
 
 	map->map_as_2d_array = ft_calloc(map->rows + 1, sizeof(char *));
+	aux = map->rows_as_list;
 	i = -1;
 	while (++i < map->rows)
 	{
-		row = map->rows_as_list->content;
+		row = ft_strdup(map->rows_as_list->content);
 		diff = map->cols - ft_strlen(row);
 		if (diff != 0)
 			row = cease_diff(diff, row);
 		map->map_as_2d_array[i] = row;
 		map->rows_as_list = map->rows_as_list->next;
 	}
+	map->rows_as_list = aux;
 	map->map_as_2d_array[map->rows] = NULL;
 }
 
@@ -61,8 +64,7 @@ static void	save_map_as_list(t_scene_desc *scene)
 	char	*line;
 	t_list	*rows_as_list;
 
-	line = ft_strdup(scene->map.first_line);
-	free(scene->map.first_line);
+	line = scene->map.first_line;
 	rows_as_list = NULL;
 	while (line != NULL)
 	{

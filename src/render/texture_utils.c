@@ -11,14 +11,14 @@ int	get_color(t_img *texture, int x, int y)
 	return (*(unsigned int *)dst);
 }
 
-static void	put_pixel(t_game *game, int x, int y, int color)
+void	put_pixel(t_game *game, int x, int y, int color)
 {
 	char	*dst;
 
 	if (x < 0 || x >= WIN_WIDTH || y < 0 || y >= WIN_HEIGHT)
 		return ;
-	dst = ((char *) game->screen->addr) + (y * game->screen->size_line + x
-			* (game->screen->bits_per_pixel / 8));
+	dst = ((char *) game->screen.addr) + (y * game->screen.size_line + x
+			* (game->screen.bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
 

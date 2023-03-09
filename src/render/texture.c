@@ -2,13 +2,13 @@
 
 static void	set_texture(t_game *game)
 {
-	game->rc.texture = game->no_texture;
+	game->rc.texture = &(game->no_texture);
 	if (game->rc.side == 1 && game->rc.ray_dir.y < 0)
-		game->rc.texture = game->we_texture;
+		game->rc.texture = &(game->we_texture);
 	else if (game->rc.side == 1)
-		game->rc.texture = game->ea_texture;
+		game->rc.texture = &(game->ea_texture);
 	else if (game->rc.side == 0 && game->rc.ray_dir.x > 0)
-		game->rc.texture = game->so_texture;
+		game->rc.texture = &(game->so_texture);
 }
 
 void	insert_texture(t_game *game, int x)

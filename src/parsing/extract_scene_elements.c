@@ -54,8 +54,8 @@ void	extract_scene_elements(t_scene_desc *scene)
 	if (elements != 6)
 	{
 		free(line);
-		scene_clean_up(scene);
 		fseek_end(scene->fd);
+		scene_clean_up(scene);
 		display_error_msg_and_exit(MISSING_ELEMENT);
 	}
 	scene->map.first_line = line;

@@ -10,19 +10,10 @@ static void	load_texture(t_game *game, t_img *texture, char *path)
 			&texture->endian);
 }
 
-static void	init_texture(t_game *game)
-{
-	load_texture(game, game->no_texture, game->scene->no_texture);
-	load_texture(game, game->so_texture, game->scene->so_texture);
-	load_texture(game, game->we_texture, game->scene->we_texture);
-	load_texture(game, game->ea_texture, game->scene->ea_texture);
-}
-
 void	textures_setup(t_game *game)
 {
-	game->no_texture = (t_img *)malloc(sizeof(t_img));
-	game->so_texture = (t_img *)malloc(sizeof(t_img));
-	game->we_texture = (t_img *)malloc(sizeof(t_img));
-	game->ea_texture = (t_img *)malloc(sizeof(t_img));
-	init_texture(game);
+	load_texture(game, &(game->no_texture), game->scene->no_texture);
+	load_texture(game, &(game->so_texture), game->scene->so_texture);
+	load_texture(game, &(game->we_texture), game->scene->we_texture);
+	load_texture(game, &(game->ea_texture), game->scene->ea_texture);
 }

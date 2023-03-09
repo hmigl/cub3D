@@ -124,11 +124,11 @@ typedef struct s_game		t_game;
 struct s_game {
 	t_mlx			mlx;
 	t_scene_desc	*scene;
-	t_img			*screen;
-	t_img			*no_texture;
-	t_img			*so_texture;
-	t_img			*we_texture;
-	t_img			*ea_texture;
+	t_img			screen;
+	t_img			no_texture;
+	t_img			so_texture;
+	t_img			we_texture;
+	t_img			ea_texture;
 	t_player		player;
 	t_raycaster		rc;
 };
@@ -178,6 +178,7 @@ int		render(t_game *game);
 void	raycast(t_game *game);
 void	insert_texture(t_game *game, int x);
 void	texture_loop(t_game *game, int x);
+void	put_pixel(t_game *game, int x, int y, int color);
 
 // raycasting
 void	calc_next_step(t_game *game);
