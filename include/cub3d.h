@@ -118,6 +118,10 @@ struct s_player {
 	t_vector	dir;
 	double		move_speed;
 	double		rotation_speed;
+	double		next_x;
+	double		next_y;
+	double		move_x;
+	double		move_y;
 };
 
 typedef struct s_key	t_key;
