@@ -3,7 +3,7 @@ SHELL := /bin/sh
 NAME := cub3D
 OBJDIR := objdir
 
-CFLAGS += $(INCLUDE) -Wall -Wextra -g -MMD -MP
+CFLAGS += $(INCLUDE) -Wall -Wextra -Werror -g -MMD -MP
 LDLIBS += -lm -lft -lmlx -lXext -lX11
 LDFLAGS += -L$(LIBFTDIR)
 INCLUDE = -I./include -I$(LIBFTDIR)/include
