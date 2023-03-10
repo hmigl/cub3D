@@ -51,8 +51,12 @@ Module.symvers
 Mkfile.old
 dkms.confgitignore
 
+# Valgrind
+vgcore.*
+
 # Outro
 cub3D
 .cache
 *.json
 *.pdf
+testfiles

@@ -1,5 +1,17 @@
 #include "cub3d.h"
 
+void	fseek_end(int fd)
+{
+	char	*line;
+
+	line = get_next_line(fd);
+	while (line != NULL)
+	{
+		free(line);
+		line = get_next_line(fd);
+	}
+}
+
 static int	copy_char(const char c, int trimmed_index, char *trimmed)
 {
 	if (trimmed_index == 0)

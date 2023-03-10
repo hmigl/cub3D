@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-static void	set_player_starting_point(t_scene_map *map)
+static void	set_player_starting_info(t_scene_map *map)
 {
 	int	i;
 	int	j;
@@ -15,6 +15,8 @@ static void	set_player_starting_point(t_scene_map *map)
 			{
 				map->x_start_pos = i;
 				map->y_start_pos = j;
+				map->player_dir = map->map_as_2d_array[i][j];
+				map->map_as_2d_array[i][j] = FLOOR;
 				return ;
 			}
 		}
@@ -39,18 +41,21 @@ static void	reconstruct_map_as_2d_array(t_scene_map *map)
 	int		i;
 	int		diff;
 	char	*row;
+	t_list	*aux;
 
 	map->map_as_2d_array = ft_calloc(map->rows + 1, sizeof(char *));
+	aux = map->rows_as_list;
 	i = -1;
 	while (++i < map->rows)
 	{
-		row = map->rows_as_list->content;
+		row = ft_strdup(map->rows_as_list->content);
 		diff = map->cols - ft_strlen(row);
 		if (diff != 0)
 			row = cease_diff(diff, row);
 		map->map_as_2d_array[i] = row;
 		map->rows_as_list = map->rows_as_list->next;
 	}
+	map->rows_as_list = aux;
 	map->map_as_2d_array[map->rows] = NULL;
 }
 
@@ -78,7 +83,7 @@ void	extract_scene_map(t_scene_desc *scene)
 		display_error_msg_and_exit(INVALID_MAP);
 	}
 	reconstruct_map_as_2d_array(&(scene->map));
-	set_player_starting_point(&(scene->map));
+	set_player_starting_info(&(scene->map));
 	if (!is_map_surrounded_by_walls(&(scene->map)))
 	{
 		scene_clean_up(scene);

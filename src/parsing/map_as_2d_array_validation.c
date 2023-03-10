@@ -25,7 +25,7 @@ static int	flood_fill(struct s_flood_fill args, int x, int y)
 {
 	if (args.map[x][y] == ' ')
 		return (0);
-	if (args.map[x][y] == '0')
+	if (args.map[x][y] == FLOOR)
 	{
 		args.map[x][y] = '.';
 		if (x == 0 || x == args.rows - 1 || y == 0 || y == args.cols - 1)
@@ -60,7 +60,7 @@ int	is_map_surrounded_by_walls(t_scene_map *map)
 	args.rows = map->rows;
 	args.cols = map->cols;
 	args.map = dup_2d_array(map->map_as_2d_array, map->rows);
-	args.map[args.x][args.y] = '0';
+	args.map[args.x][args.y] = FLOOR;
 	is_surrounded = flood_fill(args, args.x, args.y);
 	ft_free_matrix(args.map);
 	return (is_surrounded);
