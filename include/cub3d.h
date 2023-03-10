@@ -19,9 +19,9 @@
 # define FLOOR '0'
 # define WALL '1'
 
-# define WALL_COLLISION_THRESHOLD 0.5
-# define MOVE_SPEED 0.025
-# define ROTATION_SPEED 0.02
+# define WALL_COLLISION_THRESHOLD 0.2
+# define MOVE_SPEED 0.015
+# define ROTATION_SPEED 0.015
 
 # define WRONG_USAGE "usage: ./cub3D FILE"
 # define INVALID_EXT "file must end with '.cub' extension"
