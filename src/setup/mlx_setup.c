@@ -4,11 +4,35 @@ static int	keypress_management(int keycode, t_game *game)
 {
 	if (keycode == XK_Escape)
 		exit_game_gracefully(game);
-	if (keycode == XK_w || keycode == XK_s
-		|| keycode == XK_a || keycode == XK_d)
-		move_player(keycode, game);
-	if (keycode == XK_Left || keycode == XK_Right)
-		rotate_fov(keycode, game);
+	if (keycode == XK_w)
+		game->key.w = 1;
+	if (keycode == XK_s)
+		game->key.s = 1;
+	if (keycode == XK_a)
+		game->key.a = 1;
+	if (keycode == XK_d)
+		game->key.d = 1;
+	if (keycode == XK_Left)
+		game->key.rotate_left = 1;
+	if (keycode == XK_Right)
+		game->key.rotate_right = 1;
+	return (0);
+}
+
+static int	keyrelease_management(int keycode, t_game *game)
+{
+	if (keycode == XK_w)
+		game->key.w = 0;
+	if (keycode == XK_s)
+		game->key.s = 0;
+	if (keycode == XK_a)
+		game->key.a = 0;
+	if (keycode == XK_d)
+		game->key.d = 0;
+	if (keycode == XK_Left)
+		game->key.rotate_left = 0;
+	if (keycode == XK_Right)
+		game->key.rotate_right = 0;
 	return (0);
 }
 
@@ -16,6 +40,8 @@ static void	set_hooks(t_game *game)
 {
 	mlx_hook(game->mlx.win_ptr,
 		KeyPress, KeyPressMask, &keypress_management, game);
+	mlx_hook(game->mlx.win_ptr,
+		KeyRelease, KeyReleaseMask, &keyrelease_management, game);
 	mlx_hook(game->mlx.win_ptr,
 		DestroyNotify, NoEventMask, &exit_game_gracefully, game);
 	mlx_loop_hook(game->mlx.mlx_ptr, &render, game);

@@ -84,14 +84,15 @@ static void	move_forward(t_game *game)
 		game->player.pos.y += move_y;
 }
 
-void	move_player(int keycode, t_game *game)
+void	move_player(t_game *game)
 {
-	if (keycode == XK_w)
+	if (game->key.w)
 		move_forward(game);
-	if (keycode == XK_s)
+	if (game->key.s)
 		move_backward(game);
-	if (keycode == XK_a)
+	if (game->key.a)
 		move_left(game);
-	if (keycode == XK_d)
+	if (game->key.d)
 		move_right(game);
+	rotate_fov(game);
 }

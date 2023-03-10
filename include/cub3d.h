@@ -20,8 +20,8 @@
 # define WALL '1'
 
 # define WALL_COLLISION_THRESHOLD 0.5
-# define MOVE_SPEED 0.1
-# define ROTATION_SPEED 0.048
+# define MOVE_SPEED 0.025
+# define ROTATION_SPEED 0.02
 
 # define WRONG_USAGE "usage: ./cub3D FILE"
 # define INVALID_EXT "file must end with '.cub' extension"
@@ -120,6 +120,17 @@ struct s_player {
 	double		rotation_speed;
 };
 
+typedef struct s_key	t_key;
+struct s_key {
+	int	w;
+	int	a;
+	int	s;
+	int	d;
+	int	rotate_left;
+	int	rotate_right;
+};
+
+
 typedef struct s_game		t_game;
 struct s_game {
 	t_mlx			mlx;
@@ -131,6 +142,7 @@ struct s_game {
 	t_img			ea_texture;
 	t_player		player;
 	t_raycaster		rc;
+	t_key			key;
 };
 
 enum e_type_id {
@@ -185,8 +197,8 @@ void	calc_next_step(t_game *game);
 void	cast_rays_using_dda(t_game *game);
 
 // movement
-void	move_player(int keycode, t_game *game);
-void	rotate_fov(int keycode, t_game *game);
+void	move_player(t_game *game);
+void	rotate_fov(t_game *game);
 
 // other
 int		exit_game_gracefully(t_game *game);

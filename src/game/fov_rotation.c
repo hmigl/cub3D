@@ -34,10 +34,10 @@ static void	rotate_left(t_game *game)
 		+ plane.y * cos(game->player.rotation_speed);
 }
 
-void	rotate_fov(int keycode, t_game *game)
+void	rotate_fov(t_game *game)
 {
-	if (keycode == XK_Left)
+	if (game->key.rotate_left)
 		rotate_left(game);
-	else
+	else if (game->key.rotate_right)
 		rotate_right(game);
 }

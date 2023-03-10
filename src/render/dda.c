@@ -26,7 +26,7 @@ void	cast_rays_using_dda(t_game *game)
 }
 
 void	calc_next_step(t_game *game)
-{
+{	
 	if (game->rc.ray_dir.x < 0)
 	{
 		game->rc.step.x_i = -1;
