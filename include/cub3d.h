@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hmigl <hmigl@student.42sp.org.br>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/10 16:58:04 by hmigl             #+#    #+#             */
+/*   Updated: 2023/03/10 16:58:44 by hmigl            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUB3D_H
 # define CUB3D_H
 
@@ -124,7 +136,7 @@ struct s_player {
 	double		move_y;
 };
 
-typedef struct s_key	t_key;
+typedef struct s_key		t_key;
 struct s_key {
 	int	w;
 	int	a;
@@ -133,7 +145,6 @@ struct s_key {
 	int	rotate_left;
 	int	rotate_right;
 };
-
 
 typedef struct s_game		t_game;
 struct s_game {
